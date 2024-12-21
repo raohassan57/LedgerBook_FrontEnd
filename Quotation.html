@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Quotation</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="apple-touch-icon" sizes="152x152" href="./Images/ProjectImgs/Favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./Images/ProjectImgs/Favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./Images/ProjectImgs/Favicon/favicon-16x16.png">
+	<link rel="manifest" href="./Images/ProjectImgs/Favicon/site.webmanifest">
+	<link rel="mask-icon" href="./Images/ProjectImgs/Favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+
+	<link href="./css/tailwind/tailwind@2.2.19.min.css" rel=" stylesheet">
+	<!--Replace with your tailwind.css once created-->
+
+
+
+	<link href="./css/index.css" rel="stylesheet" >
+<style>
+    html {
+        height: 100% !important;
+    }
+
+    body {
+        min-height: 100% !important;
+        display: flex;
+        flex-direction: column !important;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+      /* Targeting the headers (th)
+
+
+  /* Targeting the data cells (td) */
+  table td:nth-child(4), /* QTY */
+  table td:nth-child(5), /* RATE */
+  table td:nth-child(6)  /* Total */ {
+    width: 100px; /* Adjust as needed */
+  }
+
+    footer {
+        margin-top: auto !important;
+    }
+
+    /* since nested groupes are not supported we have to use 
+regular css for the nested dropdowns 
+*/
+    li>ul {
+        transform: translatex(100%) scale(0)
+    }
+
+    li:hover>ul {
+        transform: translatex(101%) scale(1)
+    }
+
+    li>button svg {
+        transform: rotate(-90deg)
+    }
+
+    li:hover>button svg {
+        transform: rotate(-270deg)
+    }
+
+    /* Below styles fake what can be achieved with the tailwind config
+you need to add the group-hover variant to scale and define your custom
+min width style.
+See https://codesandbox.io/s/tailwindcss-multilevel-dropdown-y91j7?file=/index.html
+for implementation with config file
+*/
+    .group:hover .group-hover\:scale-100 {
+        transform: scale(1)
+    }
+
+    .group:hover .group-hover\:-rotate-180 {
+        transform: rotate(180deg)
+    }
+
+    .scale-0 {
+        transform: scale(0)
+    }
+
+    .min-w-32 {
+        min-width: 8rem
+    }
+     /* Optional: Add any custom styles here */
+     @media print {
+            body, html {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+            }
+            #print-container {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background: white;
+                padding: 10px; /* Adjust as necessary */
+                margin: 0;
+            }
+            body > *:not(#print-container) {
+                display: none;
+            }
+
+            .add-field-button{
+              display: none;
+            }
+        }
+
+</style>
+
+</head>
+
+<body class="flex flex-col min-h-screen bg-white  tracking-wider leading-normal">
+
+<!-- Navigation Menu -->
+<nav class="flex flex-col md:flex-row justify-between items-center bg-gray-800 text-white p-4  mb-8">
+    <!-- Home Icon -->
+    <a class="z-10" href="./index.html">
+        <div class="flex items-center space-x-2 mb-4 md:mb-0">
+            <!-- SVG Icon for Home -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current text-white" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                    d="M10 3.293l6.146 6.147a.5.5 0 0 1-.708.708L10 4.707l-5.439 5.439a.5.5 0 0 1-.708-.708L10 3.293zM2 7.5a.5.5 0 0 1 .5-.5h1.854l5.5 5.5H14.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-5z" />
+            </svg>
+            <!-- Text for Home -->
+            <span>Home</span>
+        </div>
+    </a>
+    <!-- Pagination for Current Path -->
+    <div class="pagination text-lg font-semibold mb-4 md:mb-0">Quotation</div>
+    <!-- Buttons for Inventory and Create Ledger -->
+    <div class="flex items-center space-x-4">
+
+        <!-- menu section Start here -->
+
+        <div class="group inline-block">
+            <button
+                class=" outline-none focus:outline-none  px-4 py-2 bg-blue-600 text-gray-100 rounded-md flex items-center min-w-32">
+                <span class="pr-1 font-semibold flex-1">Menu</span>
+                <span>
+                    <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-150 ease-in-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                </span>
+            </button>
+            <ul class="z-50 bg-blue-700 text-gray-400  rounded-sm transform scale-0 group-hover:scale-100 absolute 
+  transition duration-150 ease-in-out origin-top min-w-32">
+                <a class="rounded-lg" href="./Reminder.html">
+                    <li
+                        class="flex transition duration-300 text-xs rounded-sm px-3 py-4  hover:text-gray-100 hover:bg-gray-800">
+                        <svg class="mr-2 " width="24px" height="24px" viewBox="0 0 24 24" fill="#f3f4f6"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13.479 5.74871C15.2378 6.36051 16.5 8.03285 16.5 10L16.5 10.0157V13.6999L18.5727 15.6345C18.9045 15.9441 18.6853 16.5 18.2315 16.5H5.76856C5.31474 16.5 5.09563 15.9441 5.42739 15.6345L7.49997 13.7001V10C7.49997 8.03285 8.76223 6.36051 10.521 5.74871C10.6405 5.03992 11.2572 4.5 12 4.5C12.7428 4.5 13.3595 5.03992 13.479 5.74871Z"
+                                stroke="#f3f4f6" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M10.5853 18.5C10.7912 19.0826 11.3469 19.5 12 19.5C12.6531 19.5 13.2087 19.0826 13.4146 18.5H10.5853Z"
+                                stroke="#f3f4f6" />
+                        </svg>
+                        <span class="mt-1">Reminders</span>
+                    </li>
+                </a>
+                <!-- <hr> -->
+                <a class="rounded-lg" href="./Records.html">
+                    <li
+                        class="flex transition duration-300 rounded-sm px-3 py-4 text-xs hover:text-gray-100 hover:bg-gray-800">
+                        <svg class="mr-1" fill="#f3f4f6" width="24px" height="24px" viewBox="0 0 16 16"
+                            id="register-16px" xmlns="http://www.w3.org/2000/svg">
+                            <path id="Path_184" data-name="Path 184"
+                                d="M57.5,41a.5.5,0,0,0-.5.5V43H47V31h2v.5a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V31h2v.5a.5.5,0,0,0,1,0v-1a.5.5,0,0,0-.5-.5H55v-.5A1.5,1.5,0,0,0,53.5,28h-3A1.5,1.5,0,0,0,49,29.5V30H46.5a.5.5,0,0,0-.5.5v13a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-2A.5.5,0,0,0,57.5,41ZM50,29.5a.5.5,0,0,1,.5-.5h3a.5.5,0,0,1,.5.5V31H50Zm11.854,4.646-2-2a.5.5,0,0,0-.708,0l-6,6A.5.5,0,0,0,53,38.5v2a.5.5,0,0,0,.5.5h2a.5.5,0,0,0,.354-.146l6-6A.5.5,0,0,0,61.854,34.146ZM54,40V38.707l5.5-5.5L60.793,34.5l-5.5,5.5Zm-2,.5a.5.5,0,0,1-.5.5h-2a.5.5,0,0,1,0-1h2A.5.5,0,0,1,52,40.5Zm0-3a.5.5,0,0,1-.5.5h-2a.5.5,0,0,1,0-1h2A.5.5,0,0,1,52,37.5ZM54.5,35h-5a.5.5,0,0,1,0-1h5a.5.5,0,0,1,0,1Z"
+                                transform="translate(-46 -28)" />
+                        </svg>
+                        <span class="mt-1 ml-1">Records</span>
+                    </li>
+                </a>
+            </ul>
+        </div>
+
+        <!-- menu section End here -->
+    </div>
+</nav>
+
+<!-- Navigation ends here  -->
+
+<!-- The Ledger section start here  -->
+<section id="PrintSection" class="container mx-auto  pb-0 font-mono bg-white" spellcheck="false">
+	<div class="w-full mb-4 overflow-hidden">
+        <h2 class="text-2xl font-bold text-center">Pak Madina Electronics & Solar </h2>
+        <h4 class="text-xl font-medium text-center">Solar Tubewell Burewalla near Meezan Bank</h2>
+        <div spellcheck="true" class="editable-heading relative mt-6">
+            <span contenteditable="true">M.Shahbaz 0302-7593198</span>
+            <br>
+            <span contenteditable="true">M.Shahzad 0307-6583997</span>
+            <br>
+
+            <button class="add-field-button absolute bottom-0 right-0  px-4 py-2 text-white font-bold bg-green-500 rounded">Add Field</button>
+        </div>
+        <table  id="table-body" class="w-full border mt-4 border-collapse">
+            <thead>
+              <tr class="bg-gray-200 text-center">
+                <th class="px-4 py-2 border border-black">Sr</th>
+                <th class="px-4 py-2 border border-black">Description</th>
+                <th class="px-4 py-2 border border-black">UOM</th>
+                <th class="px-4 py-2 border border-black">QTY</th>
+                <th class="px-4 py-2 border border-black">RATE</th>
+                <th class="px-4 py-2 border border-black">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="px-4 py-2 text-center border border-black" >1</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">Solor Panels</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">NO</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black text-right" contenteditable="true"></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 text-center border border-black" >2</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"> Inverter, Ups, VFD</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">NO</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black text-right" contenteditable="true"></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 text-center border border-black" >3</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">Cable</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">Mtr</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black text-right" contenteditable="true"></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 text-center border border-black" >4</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">Steel Stand Moveable</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">NO</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black text-right" contenteditable="true"></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 text-center border border-black" >5</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"> Battery </td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">NO</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black text-right" contenteditable="true"></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 text-center border border-black" >6</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">DP Box</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">NO</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black text-right" contenteditable="true"></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 text-center border border-black" >7</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">Pump</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">NO</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black text-right" contenteditable="true"></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 text-center border border-black" >8</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">Fitting Charges</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">NO</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black text-right" contenteditable="true"></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 text-center border border-black" >9</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">PVC Conduct, Flexible Pipe,MC-4 Connector, Thimbles etc External Disconnect Switch AC/DC Breakers Safety Box.</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true">NO</td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+                <td class="px-4 py-2 border border-black text-right" contenteditable="true"></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 text-center font-bold border border-black" colspan="5">Total</td>
+                <td class="px-4 py-2 border border-black text-right font-bold" contenteditable="true">0</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-6 pt-4">
+            <h2 class="mb-2 text-base font-bold underline">Terms and conditions:</h2>
+            <p class="text-xs"><span class="font-bold ">Quotation Disputes:</span> Any disputes regarding the quotation must be communicated in writing within 3 days of receiving the quotation. Pending dispute resolution, the undisputed portion of the invoice should be paid as per the original term.</p>
+            <p class="text-xs"><span class="font-bold ">Scope of work:</span> The Quotation amount corresponds to the products and services details in the corresponding contract and agreement. Any change or deviations from their original scope of work may result in adjustments to the invoice amount.</p>
+            <p class="text-xs"><span class="font-bold ">Taxes:</span> Applicable taxes and duties will be added to the invoice amount as required by local laws and regulations.</p>
+            <p class="text-xs"><span class="font-bold ">Warranty:</span> All products and services provided are covered by the manufacturer’s or supplier’s warranty, as applicable. Warranty claims should be made in accordance with the warranty terms provided by the manufacturer or supplier.</p>
+        </div>
+          
+	</div>
+</section>
+
+  <!-- Buttons section start here -->
+<div class="flex justify-between container mx-auto px-6 pt-6 pb-12  ">
+
+
+
+	<button type="button" class="opacity-0 transition-opacity duration-300 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-8 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm" >
+		Print Ledger
+	</button>
+
+	<button type="button" class=" transition-opacity duration-300 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-8 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm" onclick="printSection()">
+		Print 
+	</button>
+	
+
+</div>
+
+</div>
+
+  <!-- Buttons section Ends here -->
+</div>
+
+
+
+
+<!-- Footer Section Start here  -->
+
+<footer class="mt-2 md:mt-6 bg-gray-800 p-4 pt-5 pb-2 sticky bottom-0">
+	<div class="container mx-auto md:px-16">
+		<div class="flex flex-wrap sm:flex-row justify-between items-center">
+			<div class="footer-left text-gray-300 text-center sm:text-left w-full md:w-1/3"> <span
+					class="text-gray-500 md:text-gray-300">Developed by: |</span>
+				<span
+					class="text-sm md:text-base hover:text-gray-100 hover:text-sm hover:font-semibold text-right">Hassan
+					Tariq &
+					Team</span>
+			</div>
+			<div class="footer-right text-gray-300 text-center sm:text-right w-full md:w-1/3"> <span
+					class="text-gray-500 md:text-gray-300">Email Us: | </span>
+				<a class="hover:text-gray-100 hover:text-sm hover:font-semibold" href="mailto:raohassan57@gmail.com"
+					target="_blank">
+					<span class="text-right">raohassan57@gmail.com</span>
+				</a>
+			</div>
+		</div>
+		<div class="text-center text-gray-400 text-xs mt-1 md:mt-0">All Rights Reserved</div>
+	</div>
+</footer>
+
+<!-- Footer Section End here  -->
+
+
+</body>
+<script>
+
+
+
+// main Headins add field functionality Start here
+
+// Function to add event listeners to each span for detecting backspace press
+function addBackspaceListener(span) {
+            span.addEventListener('keydown', function (event) {
+                if (event.key === 'Delete') {
+                    event.preventDefault();
+                    const parent = this.parentElement;
+                    const previousElement = this.previousElementSibling;
+                    const nextElement = this.nextElementSibling;
+                    if (previousElement && previousElement.tagName === 'BR') {
+                        previousElement.remove();
+                    }
+                    this.remove();
+                    if (!parent.querySelector('span')) {
+                        // Add a new empty span if all spans are deleted
+                        const newSpan = document.createElement('span');
+                        newSpan.setAttribute('contenteditable', 'true');
+                        newSpan.innerText = 'Dummy';
+                        parent.appendChild(newSpan);
+                        addBackspaceListener(newSpan);
+                    }
+                }
+            });
+        }
+
+
+// Select all existing editable spans and add the backspace listener
+const spans = document.querySelectorAll('.editable-heading span[contenteditable="true"]');
+spans.forEach(addBackspaceListener);
+
+const addFieldButton = document.querySelector('.add-field-button');
+const editableHeading = document.querySelector('.editable-heading');
+
+addFieldButton.addEventListener('click', () => {
+  const newLine = document.createElement('br'); // Create line break first
+  const newSpan = document.createElement('span');
+  newSpan.setAttribute('contenteditable', 'true');
+  newSpan.innerText = 'Dummy'; // Set initial content to empty string
+  editableHeading.appendChild(newLine); // Append line break first
+  editableHeading.appendChild(newSpan); // Then append the span
+  addBackspaceListener(newSpan);
+
+});
+// main Headins add field functionality End here
+
+
+
+
+
+
+
+
+
+// Table Row Add and Delete functionality Start here
+
+
+
+
+const tableBody = document.getElementById('table-body');
+const templateRowHTML = `              
+<tr>
+  <td class="px-4 py-2 text-center border border-black"></td>
+  <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+  <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+  <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+  <td class="px-4 py-2 border border-black" contenteditable="true"></td>
+  <td class="px-4 py-2 border border-black text-right" contenteditable="true"></td>
+</tr>`;
+
+tableBody.addEventListener('keydown', (event) => {
+  const focusedCell = document.activeElement; // Get the currently focused cell
+  const rows = tableBody.querySelectorAll('tr'); // Select all rows
+  const totalRow = rows[rows.length - 1]; // Get the last row (total row) dynamically
+
+  if (event.key === 'Insert') {
+    event.preventDefault(); // Prevent default behavior of the Insert key
+    totalRow.insertAdjacentHTML('beforebegin', templateRowHTML); // Insert the new row before the total row
+    updateSrNumbers(); // Update Sr numbers after deleting a row
+  } else if (event.key === 'Delete' && focusedCell.parentElement !== totalRow) {
+    event.preventDefault(); // Prevent default behavior of the Delete key
+    focusedCell.parentElement.remove(); // Remove the parent row (the one containing the focused cell)
+    updateSrNumbers(); // Update Sr numbers after deleting a row
+
+}
+
+});
+
+function updateSrNumbers() {
+  const rows = tableBody.querySelectorAll('tr'); // Select all visible rows
+  const totalRow = rows[rows.length - 1] // Dynamically get the last row (total row)
+  let srNumber = 1;
+  rows.forEach((row) => {
+    const firstCell = row.querySelector('td:first-child');
+    if (firstCell && row !== totalRow) { // Ensure the row is not the total row
+      firstCell.textContent = srNumber++; // Update Sr number in the first cell of each row
+    }
+  });
+}
+
+
+
+
+// Table Row Add and Delete functionality End here
+// Calculate Toatal of Table functionality Start here
+
+tableBody.addEventListener('keyup', calculateTotals)  // Updateing the Total
+
+function calculateTotals() {
+  const tableBody = document.getElementById('table-body');
+  const rows = tableBody.querySelectorAll('tbody tr');
+  let grandTotal = 0;
+
+  rows.forEach((row, index) => {
+    if (index === rows.length - 1) {
+      // Skip the total row
+      return;
+    }
+
+    const qtyCell = row.querySelector('td:nth-child(4)');
+    const rateCell = row.querySelector('td:nth-child(5)');
+    const totalCell = row.querySelector('td:nth-child(6)');
+
+    const qty = parseInt(qtyCell.textContent) || 1;
+    const rate = parseInt(rateCell.textContent) || 0;
+
+    // Calculate total only if both qty and rate are not empty
+    if (qty !== 0 && rate !== 0) {
+      const total = qty * rate;
+      totalCell.textContent = total; // Update the total cell with the calculated value
+      grandTotal += total; // Add the row total to the grand total
+
+    } else {
+      totalCell.textContent = ''; // Clear the total cell if either qty or rate is empty
+    }
+  });
+
+  // Calculate grand total considering non-empty total cells
+  const grandTotalCell = rows[rows.length - 1].querySelector('td:nth-child(2)');
+  grandTotalCell.textContent = grandTotal; // Update the grand total cell
+}
+
+
+// Calculate Toatal of Table functionality End here
+// Print Funcitonality Start here
+
+// function printSection() {
+//             // Create a new div element
+//             const printContainer = document.createElement('div');
+//             printContainer.id = 'print-container';
+
+//             // Get the content of the PrintSection
+//             const printContent = document.getElementById('PrintSection').innerHTML;
+//             printContainer.innerHTML = printContent;
+//             console.log(printContent);
+//             // Append the print container to the body
+//             document.body.appendChild(printContainer);
+
+//             // Trigger the print dialog
+//             window.print();
+
+//             // Remove the print container from the body
+//             document.body.removeChild(printContainer);
+//         }
+
+function printSection() {
+    // Get the content of the PrintSection node
+    const printContent = document.getElementById('PrintSection');
+
+    // Create a temporary container for printing
+    const printContainer = document.createElement('div');
+    printContainer.id = 'print-container';
+
+    // Save the original parent and sibling to restore after printing
+    const originalParent = printContent.parentNode;
+    const nextSibling = printContent.nextSibling;
+
+    // Append the PrintSection to the print container
+    printContainer.appendChild(printContent);
+
+    // Append the print container to the body
+    document.body.appendChild(printContainer);
+
+    // Trigger the print dialog
+    window.print();
+
+    // After printing, restore the original position of the PrintSection
+    originalParent.insertBefore(printContent, nextSibling);
+
+    // Remove the temporary print container
+    document.body.removeChild(printContainer);
+}
+
+
+// Print Funcitonality End here
+
+
+// // Add current date at heading funcitonality start here 
+// function currentDateInHeading() {
+//   const now = new Date();
+//         const formattedDateTime = now.toLocaleString(); // You can customize the format as needed
+//         document.getElementById('timestamp').textContent = formattedDateTime;
+
+// }
+
+// currentDateInHeading()
+
+
+// // Add current date at heading funcitonality End here 
+</script>
+
+</html>

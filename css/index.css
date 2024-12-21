@@ -1,0 +1,685 @@
+		/*Overrides for Tailwind CSS */
+
+		/*Form fields*/
+		.dataTables_wrapper select,
+		.dataTables_wrapper .dataTables_filter input {
+			color: #4a5568;
+			/*text-gray-700*/
+			padding-left: 1rem;
+			/*pl-4*/
+			padding-right: 1rem;
+			/*pl-4*/
+			padding-top: .5rem;
+			/*pl-2*/
+			padding-bottom: .5rem;
+			/*pl-2*/
+			line-height: 1.25;
+			/*leading-tight*/
+			border-width: 2px;
+			/*border-2*/
+			border-radius: .25rem;
+			border-color: #edf2f7;
+			/*border-gray-200*/
+			background-color: #edf2f7;
+			/*bg-gray-200*/
+		}
+
+		/*Row Hover*/
+		table.dataTable.hover tbody tr:hover,
+		table.dataTable.display tbody tr:hover {
+			background-color: #ebf4ff;
+			/*bg-indigo-100*/
+		}
+
+		/*Pagination Buttons*/
+		.dataTables_wrapper .dataTables_paginate .paginate_button {
+			font-weight: 700;
+			/*font-bold*/
+			border-radius: .25rem;
+			/*rounded*/
+			border: 1px solid transparent;
+			/*border border-transparent*/
+		}
+
+		/*Pagination Buttons - Current selected */
+		.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+			color: #fff !important;
+			/*text-white*/
+			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+			/*shadow*/
+			font-weight: 700;
+			/*font-bold*/
+			border-radius: .25rem;
+			/*rounded*/
+			background: #667eea !important;
+			/*bg-indigo-500*/
+			border: 1px solid transparent;
+			/*border border-transparent*/
+		}
+
+		/*Pagination Buttons - Hover */
+		.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+			color: #fff !important;
+			/*text-white*/
+			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+			/*shadow*/
+			font-weight: 700;
+			/*font-bold*/
+			border-radius: .25rem;
+			/*rounded*/
+			background: #667eea !important;
+			/*bg-indigo-500*/
+			border: 1px solid transparent;
+			/*border border-transparent*/
+		}
+
+		/*Add padding to bottom border */
+		table.dataTable.no-footer {
+			border-bottom: 1px solid #e2e8f0;
+			/*border-b-1 border-gray-300*/
+			margin-top: 0.75em;
+			margin-bottom: 0.75em;
+		}
+
+		/*Change colour of responsive icon*/
+		table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
+		table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
+			background-color: #667eea !important;
+			/*bg-indigo-500*/
+		}
+
+/* now my custom code  */
+
+    #recipients th{
+      text-align: left ;
+    }
+
+:root {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+
+}
+
+
+.pagination{
+	font-family: 'Times New Roman', Times, serif, cursive;
+	font-weight: 300;
+	letter-spacing: 3px;
+	/* font-display: swap; */
+	z-index: 1;
+	font-size: 38px;
+}
+
+a {
+	z-index: 2;
+}
+
+/* @media (min-width: 700px) {
+
+	.pagination{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		z-index: 1;
+	}
+  } */
+
+
+.homeImg{
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	z-index: 10;
+}
+
+.custom-btn-container{
+	position: absolute;
+	right: 28px;
+	bottom: 23px;
+}
+
+.btn-primary{
+width: 124px;
+height: 32px;
+background: #0B569B;
+color: #DDDDDD;
+border-radius: 5px;
+font-family: "Roboto", sans-serif;
+font-weight: 400;
+font-style: normal;
+margin-left: 11px;
+z-index: 11;
+margin-right: 0.7rem;
+
+}
+
+.btn-secondary{
+width: 124px;
+height: 32px;
+background: #9B0B0B;
+color: #DDDDDD;
+border-radius: 5px;
+font-family: "Roboto", sans-serif;
+font-weight: 400;
+font-style: normal;
+margin-right: 0px;
+z-index: 11;
+}
+
+
+#recipients.indexPageTable{
+	overflow: hidden; 
+	transition: opacity .8s cubic-bezier(0.075, 0.82, 0.165, 1); 
+	opacity: 0;
+}
+
+.reveal {
+	opacity: 1 !important;
+}
+
+/* Ledger page css start  */
+
+.createrInfo input{
+outline: none;
+}
+
+
+
+
+
+#khataBody td.editable {
+    overflow: visible; /* Allow overflow when editing */
+    white-space: normal; /* Allow text to wrap vertically */
+  }
+
+#khataBody td.editable:focus {
+
+	outline: 1px solid black;
+  }
+
+
+#khataBody td {
+    white-space: nowrap; /* Prevent text from wrapping horizontally */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Display an ellipsis (...) to represent overflow */
+    max-width: 200px; /* Limit width to prevent horizontal expansion */
+    vertical-align: top; /* Align text to the top of the cell */
+  }
+
+
+#khataBody table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+#khataBody .date {
+max-width: 150px !important;
+width: 150px !important;
+font-family: 'Times New Roman',"Open Sans",sans-serif ;
+font-weight: 500;
+
+}
+
+
+#khataBody .description {
+	font-family: Roboto, 'Times New Roman', Times, serif;
+	font-weight: 500;
+	letter-spacing: 1px;
+	word-spacing: -1px;
+}
+
+
+#khataBody .note {
+	font-family: "Open Sans",sans-serif ;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+	word-spacing: 0px;
+}
+
+
+
+.passwordCheckbox {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+  }
+  
+  .passwordCheckbox input[type="checkbox"] {
+	display: none; /* Hide the default checkbox */
+  }
+  
+  .passwordCheckbox label {
+	position: relative;
+	padding-left: 30px; /* Space for custom checkbox */
+	cursor: pointer;
+	font-size: 16px;
+  }
+  
+  .passwordCheckbox label:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 20px; /* Width and height of custom checkbox */
+	height: 20px;
+	border: 2px solid #999; /* Border color */
+	background-color: #fff; /* Background color */
+  }
+  
+  .passwordCheckbox input[type="checkbox"]:checked + label:before {
+	background-color: #007bff; /* Change background color when checked */
+	border-color: #007bff; /* Change border color when checked */
+  }
+  
+  .passwordCheckbox label:after {
+	content: '\2713'; /* Checkmark symbol */
+	position: absolute;
+	top: 50%;
+	left: 4px;
+	transform: translateY(-50%);
+	font-size: 16px;
+	color: #fff; /* Color of the checkmark */
+	opacity: 0; /* Initially hidden */
+  }
+  
+  .passwordCheckbox input[type="checkbox"]:checked + label:after {
+	opacity: 1; /* Show the checkmark when checked */
+  }
+  
+  .passwordCheckbox label {
+	order: 2; /* Set the order of label to 2 (move it to the right) */
+	margin-left: auto; /* Auto margin to move the label to the right */
+	/* color: white; */
+  }
+  
+/* Ledger page css End  */
+
+/* My_Store page styel start  */
+#My_StoreProductTabel tr:nth-child(even){
+	background-color: #e8e8e9;
+}
+
+
+
+/* My_Store page styel Ends  */
+
+
+
+/* Order page start here  */
+
+#OrderTableBody td {
+	outline: none;
+}
+
+.suggestionList{
+	height: 320px;
+	overflow: scroll;
+	overflow-x: hidden;
+	display: none;
+	width: 597.33px;
+}
+
+.suggestionItem{
+display: flex;
+cursor: pointer;
+}
+
+#searchInput:focus {
+	border-radius: 20px 20px 0px 0px;
+}
+
+/* #searchInput:hover ~ .suggestionList {
+	display: block;
+} */
+
+.suggestionItem:nth-of-type(even){
+background-color: #f3f3f3;
+}
+
+.imgContainer{
+	width: 48px !important;
+	height: 48px !important;
+}
+
+.TotalBillHeading{
+	font-family: "Open Sans";
+	font-weight: 500;
+}
+
+.TotalSectionHeadings{
+	font-family: "Pacifico";
+	font-weight: 500;
+}
+
+/* .order-svg-rotate{
+	transform: rotate(720deg);
+} */
+
+.rotate{
+	animation: rotate 1s ease-in-out infinite;
+    transform-origin: 50% 50%;
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(1080deg);
+	}
+}
+
+.buttonContainer{
+	/* position: absolute; */
+	transform: translate(180px , 48px);
+
+}
+
+.buttonContainer button:active {
+
+	scale: .90;
+}
+
+
+
+/* Order page End here  */
+
+/* Custom Validation wobble animation start here  */
+@keyframes wobble {
+	0% {
+		transform: translateX(0);
+	}
+
+	15% {
+		transform: translateX(-10px);
+	}
+
+	30% {
+		transform: translateX(10px);
+	}
+
+	45% {
+		transform: translateX(-10px);
+	}
+
+	60% {
+		transform: translateX(10px);
+	}
+
+	75% {
+		transform: translateX(-10px);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+/* #inputField {
+	border: 1px solid #ccc;
+	padding: 5px;
+	font-size: 16px;
+} */
+
+.wobble {
+	animation: wobble 0.5s ease-in-out;
+}
+
+/* Custom Validation wobble animation End here  */
+/* Footer css start here  */
+
+/* body {
+	position: relative;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 80px;
+} */
+
+/* footer {
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+} */
+
+/* .footer-left {
+	font-size: 14px;
+	min-width: 300px;
+	text-align: right;
+}
+
+.footer-right {
+	display: flex;
+	align-items: center;
+	min-width: 300px;
+	text-align: left;
+} */
+
+.footer-left > :first-child {
+    transition: color 0.2s ease;
+}
+
+.footer-right > :first-child {
+    transition: color 0.2s ease;
+}
+
+.footer-left:hover > :first-child {
+    color: darkslategray;
+}
+
+.footer-right:hover > :first-child {
+    color: darkslategray;
+}
+
+/* 
+.footer-right img {
+	width: 24px;
+	height: 24px;
+	margin-right: 5px;
+} */
+
+.footer-right span {
+	font-size: 14px;
+	margin-left: 5px;
+}
+/* Footer css End here  */
+
+/* Index page menu css start here */
+.group.inline-block > ul {
+	outline: none;
+	border-top: 2px solid white;
+}
+/* Index page menu css End here */
+
+/* Selection color shift start  */
+::selection {
+    background-color: #ffefaf; /* Change this color to your desired selection color */
+    color: #000; /* Change this color to your desired text color */
+}
+/* Selection color shift end  */
+
+
+/* Records page styleing start here */
+/* #RecordsTable {
+	width: 100%;
+	position: relative;
+	border: colapse;
+  } */
+  
+  /* #RecordsTable thead {
+	position: sticky;
+	top: 0;
+  } */
+  
+  /* #RecordsTable tbody { */
+	/* height: 500px ; */
+	/* overflow-y: auto; */
+	/* position: relative; */
+	/* width: 100%; */
+  /* } */
+
+#RecordsTable tbody tr { 
+	width: 100%;
+}
+
+
+#RecordsTable tbody tr td:nth-child(1) { 
+	width: 15% !important;
+	padding-left: 8px;
+}
+
+#RecordsTable tbody tr td:nth-child(2) { 
+	width: 15% !important;
+}
+
+#RecordsTable tbody tr td:nth-child(6) { 
+	width: 15% !important;
+}
+
+#RecordsTable tbody tr td:nth-child(7) { 
+	width: 15% !important;
+}
+
+
+   ::-webkit-scrollbar {
+   	width: 0px;
+   	/* Adjust the width as needed */
+   }
+/* Records page styleing End here */
+
+
+/* Entry Logo Animation Start here  */
+.logo-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0px;
+	background: white;
+	z-index: 1000;
+	animation: fadeOut 2.5s ease-in-out forwards;
+}
+
+.logo {
+	animation: bounce 1s ease;
+}
+
+@keyframes bounce {
+	0% {
+		transform: scale(0);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	
+
+	
+	80% {
+		opacity: 1;
+	}
+	
+
+	100% {
+		opacity: 0;
+		display: none;
+	}
+}
+
+/* Entry Logo Animation End here  */
+
+/* Backup Section css Start here */
+
+/* Place styles.css next to your index.html */
+.Backupcontainer {
+	text-align: right;
+	transform: translate(120px, -60px);
+}
+
+#modal {
+	display: flex;
+	/* Initially hidden */
+}
+
+#backupButton{
+	background-color: rgb(234 88 12);
+}
+
+.loader {
+	border-top-color: #3498db;
+	-webkit-animation: spinner 1.5s linear infinite;
+	animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+
+/* Backup Section css End here */
+
+/* A4 Print Css Start here */
+@media print {
+	@page {
+		size: A4;
+		margin: 10mm;
+	}
+	body {
+		-webkit-print-color-adjust: exact;
+		/* transform-origin: top left; */
+	}
+	#LedgerTable {
+		width: 100%;
+		max-width: 1400px;
+		border-collapse: collapse;
+	}
+	#LedgerTable th, #LedgerTable td {
+		/* border: 1px solid #000; */
+		/* padding: 8px; */
+		/* text-align: left; */
+		word-wrap: break-word;
+		font-size: 12px;
+	}
+
+	#LedgerTable tr td:nth-child(3){
+		min-width: 120px;
+	}
+}
+
+
+
+/* A4 Print Css End here */
+
+
+

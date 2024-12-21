@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Home</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+  <link rel="apple-touch-icon" sizes="152x152" href="./Images/ProjectImgs/Favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./Images/ProjectImgs/Favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./Images/ProjectImgs/Favicon/favicon-16x16.png">
+  <link rel="manifest" href="./Images/ProjectImgs/Favicon/site.webmanifest">
+  <link rel="mask-icon" href="./Images/ProjectImgs/Favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  
+	<link href="./css/tailwind/tailwind@2.2.19.min.css" rel=" stylesheet">
+	<!--Replace with your tailwind.css once created-->
+    <!-- Prevent caching -->
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+	<!--Regular Datatables CSS-->
+	<link href="./css/jquery.dataTables/jquery.dataTables.min.css" rel="stylesheet">
+	<!--Responsive Extension Datatables CSS-->
+	<link href="./css/jquery.dataTables/responsive.dataTables.min.css" rel="stylesheet">
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
+
+	<link href="./css/index.css" rel="stylesheet" >
+
+
+
+</head>
+
+<body class="flex flex-col min-h-screen  bg-gray-900 text-gray-900 tracking-wider leading-normal">
+
+<div class="flex-1">
+    <!-- Navigation Menu -->
+    <nav class="flex flex-col md:flex-row justify-between items-center bg-gray-800 text-white p-4 rounded-md mb-8">
+      <!-- Home Icon -->
+    <a class="z-10" href="./index.html">
+      <div class="flex items-center space-x-2 mb-4 md:mb-0">
+        <!-- SVG Icon for Home -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current text-white" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 3.293l6.146 6.147a.5.5 0 0 1-.708.708L10 4.707l-5.439 5.439a.5.5 0 0 1-.708-.708L10 3.293zM2 7.5a.5.5 0 0 1 .5-.5h1.854l5.5 5.5H14.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-5z"/>
+        </svg>
+        <!-- Text for Home -->
+        <span>Home</span>
+      </div>
+    </a>
+      <!-- Pagination for Current Path -->
+      <div class="pagination text-lg font-semibold mb-4 md:mb-0">Home</div>
+      <!-- Buttons for Inventory and Create Ledger -->
+      <div class="flex items-center space-x-4">
+        <a href="./My_Store.html" class="bg-red-700 hover:bg-red-800 text-white px-2 py-1 rounded-md transition duration-300">Inventory</a>
+        <a id="LedgerLink" href="./Ledger.html"
+        class="bg-green-600 hover:bg-green-700 text-white px-2 py-1 rounded-md transition duration-300">Create Ledger</a>
+        <a id="OrderLink" href="./Order.html" class="bg-indigo-500 hover:bg-indigo-600 text-white px-2 py-1 rounded-md transition duration-300">Create Order</a>
+      </div>
+    </nav>
+  
+  <!-- Navigation ends here  -->
+  
+  
+  
+  <!-- Creater Info section start here  -->
+  <div spellcheck="false" class="createrInfo container w-11/12 mx-auto bg-white p-6 rounded-md shadow-md">
+  
+      <div class="flex space-x-4">
+      <div class="w-24 ">
+        <label for="no" class="block text-sm font-bold  text-gray-700">No</label>
+        <input type="text" id="createrID" name="phone" readonly class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Id">
+      </div>
+      <div class="w-1/2   rounded-lg">
+        <label for="name" class="block text-sm font-bold  text-gray-700">Name</label>
+        <input type="text" id="createrName" name="name" class="mt-1  focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md resize-none" placeholder="Customer's Shope Name">
+      </div>
+      <div class="w-full  ">
+        <label for="location" class="block text-sm font-bold  text-gray-700">Location</label>
+        <input type="text" id="createrLocation" name="location" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Shope Location">
+      </div>
+      <div class="w-52 px-2">
+        <label for="phone" class="block text-sm font-bold  text-gray-700">Phone No</label>
+        <input type="text" id="createrPhone" name="phone" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="03043467993">
+      </div>
+      <div class="w-52 px-2">
+              <button id="createrSaveButton" class="mt-3 bg-gray-300 text-white px-2 cursor-default rounded-md  transition duration-300 transform" onclick="CreaterSave(this)" >Save</button>
+      </div>
+      </div>
+    </div>
+  
+  
+  
+  <!-- Creater Info section Ends here  -->
+  
+    <!--Container-->
+    <div class="container w-full md:w-4/5 mt-8  mx-auto px-2">
+  
+      <!--Card-->
+      <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded indexPageTable shadow bg-white">
+  
+  
+        <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+          <thead>
+            <tr>
+              <th data-priority="2">No</th>
+              <th data-priority="1">Description</th>
+              <th data-priority="3">Last Update</th>
+              <th data-priority="4">Remaining</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+  
+        </table>
+  
+  
+      </div>
+      <!--/Card-->
+  
+  
+    </div>
+    <!--/container-->
+  
+  
+  
+  
+  <!-- Previous Payment Section Start here  -->
+  
+  <div class="container  mx-auto ">
+    <div class="card bg-gray-800 rounded-xl px-12 py-6  mt-6 ">
+        <div class="flex justify-between ">
+          <span class="text-base  text-gray-300  text-2xl ">Previous Payment Total :</span>
+          <span class="text-gray-300 text-2xl" id="previousPaymentTotal">5000000000</span>
+        </div>
+    </div>
+  </div>
+  
+</div>
+
+
+<!-- Previous Payment Section End here  -->
+
+  <!-- Footer Section Start here  -->
+
+
+<footer class="mt-2 md:mt-6 bg-gray-800 p-4 pt-5 pb-2 sticky bottom-0">
+  <div class="container mx-auto md:px-16">
+    <div class="flex flex-wrap sm:flex-row justify-between items-center">
+      <div class="footer-left text-gray-300 text-center sm:text-left w-full md:w-1/3"> <span
+          class="text-gray-500 md:text-gray-300">Developed by: |</span>
+        <span class="text-sm md:text-base hover:text-gray-100 hover:text-sm hover:font-semibold text-right">Hassan Tariq
+          &
+          Team</span>
+      </div>
+      <div class="footer-right text-gray-300 text-center sm:text-right w-full md:w-1/3"> <span
+          class="text-gray-500 md:text-gray-300">Email Us: | </span>
+        <a class="hover:text-gray-100 hover:text-sm hover:font-semibold" href="mailto:raohassan57@gmail.com"
+          target="_blank">
+          <span class="text-right">raohassan57@gmail.com</span>
+        </a>
+      </div>
+    </div>
+    <div class="text-center text-gray-400 text-xs mt-1 md:mt-0">All Rights Reserved</div>
+  </div>
+</footer>
+
+  <!-- Footer Section End here  -->
+
+
+
+
+  <script>
+// Gettting Cereater Id start here 
+function getCreaterIdFromUrl() {
+    // Get the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Get the value of the "CreaterId" parameter
+    const createrId = urlParams.get('CreaterId');
+    return createrId;
+}
+
+// Example usage:
+const createrId = getCreaterIdFromUrl();
+// Gettting Cereater Id End here 
+
+// Defining some createrInfo Seciton variable start here 
+
+let createrID = document.getElementById("createrID");
+    let createrName = document.getElementById("createrName");
+    let createrLocation = document.getElementById("createrLocation");
+    let createrPhone = document.getElementById("createrPhone");
+
+    var createrData = ""
+    var readyToSave = false
+    // Select the button element
+    const createrSaveButton = document.getElementById("createrSaveButton");
+
+
+// Defining some createrInfo Seciton variable End here 
+
+
+
+    // Save modyfied creater values start here 
+     function CreaterSave(elem){
+
+        if(readyToSave){
+
+
+                        // Get the input values
+            createrName = createrName.value.trim();
+            createrLocation = createrLocation.value.trim();
+            createrPhone =  parseFloat( createrPhone.value.trim() )
+            // Convert phone to a number
+            const phone = parseFloat(createrPhone);
+
+            // Create a data object with the required properties
+            const data = {
+                CreaterId: createrData.no,
+                name: createrName,
+                officeLocation: createrLocation,
+                phone: phone
+            };
+
+            // Make a POST request to the server
+            fetch('https://ledgerbook3-n17dzrms.b4a.run/api/home/UpdateCreater', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+
+
+
+            // On success styling 
+            elem.classList.add("cursor-default", "bg-gray-300");
+            elem.classList.remove("bg-red-300", "hover:bg-green-600")
+                // Handle the response data if needed
+
+                if (data.codeName === "DuplicateKey" && data.keyPattern && data.keyPattern.phone === 1) {
+                  document.getElementById("createrPhone").value = "Duplicate Number"
+
+                    return; // Stop executing the function further
+                  }
+
+                console.log(data);
+
+
+            })
+            .catch(error => {
+                // Handle errors here
+                console.log('There was a problem with the fetch operation:', error);
+                if (error.codeName === "DuplicateKey" && error.keyPattern && error.keyPattern.phone === 1) {
+                    createrPhone.value = "Duplicate Number";
+                    console.error('Duplicate phone number:', error);
+                }
+            });
+
+
+        }
+
+    }
+    // Save modyfied creater values End here 
+
+
+// Function to add background color to the button
+function InputChecker() {
+    // Get the values of the input elements
+    const nameValue = createrName.value.trim();
+    const locationValue = createrLocation.value.trim();
+    var phoneValue =  createrPhone.value.trim();
+    // var phoneValue =  parseFloat( createrPhone.value.trim() )
+    // Regular expression to match 11-digit numbers starting with "03"
+    const phoneRegex = /^03\d{9}$/;
+
+
+
+    // Check if any of the input values are empty
+    if (nameValue === '' || locationValue === '' || phoneValue === '') {
+        // Set readyToSave to false if any input is empty
+        readyToSave = false;
+        createrSaveButton.classList.remove("bg-red-300", "hover:bg-green-600");
+        createrSaveButton.classList.add("cursor-default");
+
+
+    } else {
+        // Check if any of the values are different
+        if (nameValue !== createrData.name || phoneValue !== createrData.phone || locationValue !== createrData.officeLocation) {
+
+            if (phoneRegex.test(phoneValue)) {
+                // Setting Ready to Save Value Accordingly
+                readyToSave = true;
+                createrSaveButton.classList.remove("bg-gray-300", "cursor-default");
+                createrSaveButton.classList.add("bg-red-300", "hover:bg-green-600");
+                createrPhone.classList.remove("text-red-600")
+              } else {
+                // Setting Ready to Save Value Accordingly
+                readyToSave = false;
+                createrPhone.classList.add("text-red-600")
+                createrSaveButton.classList.remove("bg-red-300", "hover:bg-green-600");
+                createrSaveButton.classList.add("cursor-default", "bg-gray-300");
+            }
+        }else {
+            readyToSave = false;
+            createrSaveButton.classList.remove("bg-red-300", "hover:bg-green-600");
+            createrSaveButton.classList.add("cursor-default", "bg-gray-300");
+        }
+    }
+}
+
+
+// Add event listeners to input elements
+createrName.addEventListener("input", InputChecker);
+createrLocation.addEventListener("input", InputChecker);
+createrPhone.addEventListener("input", InputChecker);
+// Defining some createrInfo Seciton variable End here 
+
+
+
+// Get Creater Info and it's document and previousTotal from backend Start here 
+// Create a new XMLHttpRequest object
+const xhr = new XMLHttpRequest();
+
+// Open a GET request to the specified URL in synchronous mode
+xhr.open('GET', `https://ledgerbook3-n17dzrms.b4a.run/api/home/${createrId}`, false); // The third parameter 'false' indicates synchronous mode
+
+try {
+  // Send the request
+  xhr.send();
+
+  // Check if the request was successful
+  if (xhr.status === 200) {
+    // Parse the JSON response
+    const response = JSON.parse(xhr.responseText);
+
+
+    // Extract creater and days data from the response
+    let { creater, ledgers, previousRemainingTotal } = response;
+    creater.phone = "0" + creater.phone
+
+
+    createrData = creater
+    // Call the render function with tData and days
+    render(ledgers, creater);
+
+
+    // Putting Values in CreaterInfo section start here 
+
+        createrID.value = creater.no
+        createrName.value = creater.name
+        createrLocation.value = creater.officeLocation
+        createrPhone.value = creater.phone
+
+
+    // Putting Values in CreaterInfo section End here 
+
+    // setttin previousPaymentTotal values 
+    document.getElementById('previousPaymentTotal').innerText = "Rs : " + numberWithCommas(previousRemainingTotal);
+
+    // Setttin the CreaterId in Link Tags Start here 
+    let LedgerLink = document.getElementById("LedgerLink")
+    let OrderLink = document.getElementById("OrderLink")
+
+    // Append the CreaterId to the href attributes of the links
+    LedgerLink.setAttribute("href", LedgerLink.getAttribute("href") + "?CreaterId=" + creater.no);
+    OrderLink.setAttribute("href", OrderLink.getAttribute("href") + "?CreaterId=" + creater.no);
+    // Setttin the CreaterId in Link Tags End here 
+ 
+  } else {
+    console.error('Failed to fetch data:', xhr.status);
+  }
+} catch (error) {
+  error.then(data => {
+    console.log(data);
+  })
+  console.error('Error fetching data:', error);
+}
+
+
+// Get Creater Info and it's document and previousTotal from backend End here 
+
+
+
+// Function to convert ISO date string to local date string start here
+
+
+function convertToLocaleDate(isoDateString) {
+  // Create a new Date object from the ISO date string
+  const date = new Date(isoDateString);
+
+  // Get the local date components (day, month, year)
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // Month is zero-based, so add 1
+  const year = date.getFullYear();
+
+  // Format the local date string as "MM/DD/YYYY"
+  const localDateString = `${month.toString().padStart(2, '0')}/${day.toString().padStart(2, '0')}/${year}`;
+
+  return localDateString;
+}
+
+
+
+// Function to convert ISO date string to local date string End here
+// Functionality to redirect to Ledger Page with ledger andd creater ids start herre
+
+
+function redirectToLedgerPage( LedgerId) {
+  // Reload the page using the new URL
+
+    // Redirect to /Ledger.html with CreaterId and LedgerId as query parameters
+    window.location.href = `/Ledger.html?LedgerId=${LedgerId}`;
+}
+
+
+// Functionality to redirect to Ledger Page with ledger andd creater ids End herre
+
+
+// Render Functionality start here 
+function render(Ledgers, creater) {
+  var tbodyelem = document.getElementsByTagName('tbody')[0]
+
+  const CreaterId = creater.no
+
+
+var TotalRow = ''
+Ledgers.map((item, key) => {
+
+
+
+const LedgerId = item._id
+
+var tr = `					
+      <tr onclick="redirectToLedgerPage('${LedgerId}')">
+        <td>${key +1}</td>
+        <td>${item?.List[0]?.Description ?? ""}</td>
+        <td>${item?.updatedAt ? convertToLocaleDate(item?.updatedAt) : "unknown"}</td>
+        <td>${item?.List[item.List.length - 1].Remaining ?? 0 }</td>
+      </tr>
+      `
+  
+    TotalRow += tr
+});
+
+tbodyelem.innerHTML = TotalRow
+}
+
+
+// Trial Ending functionality start here 
+
+
+
+
+
+
+// Trial Ending functionality End here 
+
+// intro smothning start 
+// JavaScript to trigger the reveal animation after 1 second (1000 milliseconds)
+setTimeout(function() {
+    document.getElementById('recipients').classList.add('reveal');
+}, 800);
+// intro smothning End 
+
+
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
+
+</script>
+
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="./js/jquery/jquery-3.4.1.min.js"></script>
+
+	<!--Datatables -->
+	<script src="./js/dataTables/jquery.dataTables.min.js"></script>
+	<script src="./js/dataTables/dataTables.responsive.min.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			var table = $('#example').DataTable({
+					responsive: true
+				})
+				.columns.adjust()
+				.responsive.recalc();
+		});
+	</script>
+
+</body>
+
+</html>

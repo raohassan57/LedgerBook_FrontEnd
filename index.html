@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Home</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+  <link rel="apple-touch-icon" sizes="152x152" href="./Images/ProjectImgs/Favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./Images/ProjectImgs/Favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./Images/ProjectImgs/Favicon/favicon-16x16.png">
+  <link rel="manifest" href="./Images/ProjectImgs/Favicon/site.webmanifest">
+  <link rel="mask-icon" href="./Images/ProjectImgs/Favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+	<link href="./css/tailwind/tailwind@2.2.19.min.css" rel=" stylesheet">
+	<!--Replace with your tailwind.css once created-->
+
+
+	<!--Regular Datatables CSS-->
+	<link href="./css/jquery.dataTables/jquery.dataTables.min.css" rel="stylesheet">
+	<!--Responsive Extension Datatables CSS-->
+	<link href="./css/jquery.dataTables/responsive.dataTables.min.css" rel="stylesheet">
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
+
+	<link href="./css/index.css" rel="stylesheet" >
+<script>
+  // Functionality for Animation Start  here
+function checkDisplayCountAndHide() {
+    const currentTime = Date.now(); // Get the current timestamp
+
+
+    // Check if the last display time was more than 4 hours ago
+    const lastDisplayTime = parseInt(localStorage.getItem('lastDisplayTime')) || 0;
+    const fourHoursInMillis = 6 * 60 * 60 * 1000; // 4 hours in milliseconds
+    if (currentTime - lastDisplayTime >= fourHoursInMillis) {
+        // Reset the display count if the last display was more than 4 hours ago
+        localStorage.setItem('displayCount', 0);
+        localStorage.setItem('lastDisplayTime', currentTime);
+    }
+
+    const displayCount = localStorage.getItem('displayCount') || 0; // Get the display count from localStorage
+
+    if (displayCount < 2) {
+        // If the logo-container has been displayed 3 times or more within 4 hours, hide it
+        document.querySelector('.logo-container').style.display = 'flex';
+        // Increment the display count and update the timestamp
+        localStorage.setItem('displayCount', parseInt(displayCount) + 1);
+        // localStorage.setItem('lastDisplayTime', currentTime);
+        return; // Exit the function
+    }else{
+      document.querySelector('.logo-container').style.display = 'none';
+        return; // Exit the function
+    }
+}
+
+// Call the function when the page loads
+window.addEventListener('load', checkDisplayCountAndHide);
+
+// Functionality for Animation End  here
+</script>
+
+
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-900 text-gray-900 tracking-wider leading-normal">
+
+  <!-- Navigation Menu -->
+  <nav class="flex flex-col md:flex-row justify-between items-center bg-gray-800 text-white p-4 rounded-md mb-8">
+    <!-- Home Icon -->
+	<a class="z-10" href="./index.html">
+    <div class="flex items-center space-x-2 mb-4 md:mb-0">
+      <!-- SVG Icon for Home -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current text-white" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 3.293l6.146 6.147a.5.5 0 0 1-.708.708L10 4.707l-5.439 5.439a.5.5 0 0 1-.708-.708L10 3.293zM2 7.5a.5.5 0 0 1 .5-.5h1.854l5.5 5.5H14.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-5z"/>
+      </svg>
+      <!-- Text for Home -->
+      <span>Home</span>
+    </div>
+	</a>
+    <!-- Pagination for Current Path -->
+    <div class="pagination text-lg font-semibold mb-4 md:mb-0">Home</div>
+    <!-- Buttons for Inventory and Create Ledger -->
+    <div class="flex items-center space-x-4">
+      <a href="./My_Store.html" class="bg-red-700 hover:bg-red-800 text-white px-2 py-1 rounded-md transition duration-300">Inventory</a>
+      <a href="./Ledger.html"
+      class="bg-green-600 hover:bg-green-700 text-white px-2 py-1 rounded-md transition duration-300">Create Ledger</a>
+      <a href="./Order.html" class="bg-indigo-500 hover:bg-indigo-600 text-white px-2 py-1 rounded-md transition duration-300">Create Order</a>
+
+
+      <!-- menu section Start here -->
+      
+      <div class="group inline-block">
+        <button
+          class=" outline-none focus:outline-none  px-4 py-2 bg-blue-600 text-gray-100 rounded-md flex items-center min-w-32"
+        >
+          <span class="pr-1 font-semibold flex-1">Menu</span>
+          <span>
+            <svg
+              class="fill-current h-4 w-4 transform group-hover:-rotate-180
+              transition duration-150 ease-in-out"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+              />
+            </svg>
+          </span>
+        </button>
+        <ul
+          class="bg-blue-700 text-gray-400  rounded-sm transform scale-0 group-hover:scale-100 absolute 
+        transition duration-150 ease-in-out origin-top min-w-32"
+        >
+          <a class="rounded-lg" href="./Reminder.html" >
+      
+            <li class="flex transition duration-300 text-xs rounded-sm px-3 py-4  hover:text-gray-100 hover:bg-gray-800">
+              <svg class="mr-2 " width="24px" height="24px" viewBox="0 0 24 24" fill="#f3f4f6" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.479 5.74871C15.2378 6.36051 16.5 8.03285 16.5 10L16.5 10.0157V13.6999L18.5727 15.6345C18.9045 15.9441 18.6853 16.5 18.2315 16.5H5.76856C5.31474 16.5 5.09563 15.9441 5.42739 15.6345L7.49997 13.7001V10C7.49997 8.03285 8.76223 6.36051 10.521 5.74871C10.6405 5.03992 11.2572 4.5 12 4.5C12.7428 4.5 13.3595 5.03992 13.479 5.74871Z" stroke="#f3f4f6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.5853 18.5C10.7912 19.0826 11.3469 19.5 12 19.5C12.6531 19.5 13.2087 19.0826 13.4146 18.5H10.5853Z" stroke="#f3f4f6"/>
+                </svg>
+              <span class="mt-1">Reminders</span>
+            </li>
+          </a>
+          <!-- <hr> -->
+          <a class="rounded-lg" href="./Records.html" >
+            <li class="flex transition duration-300 rounded-sm px-3 py-4 text-xs hover:text-gray-100 hover:bg-gray-800">
+              <svg class="mr-1" fill="#f3f4f6" width="24px" height="24px" viewBox="0 0 16 16" id="register-16px" xmlns="http://www.w3.org/2000/svg">
+                <path id="Path_184" data-name="Path 184" d="M57.5,41a.5.5,0,0,0-.5.5V43H47V31h2v.5a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V31h2v.5a.5.5,0,0,0,1,0v-1a.5.5,0,0,0-.5-.5H55v-.5A1.5,1.5,0,0,0,53.5,28h-3A1.5,1.5,0,0,0,49,29.5V30H46.5a.5.5,0,0,0-.5.5v13a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-2A.5.5,0,0,0,57.5,41ZM50,29.5a.5.5,0,0,1,.5-.5h3a.5.5,0,0,1,.5.5V31H50Zm11.854,4.646-2-2a.5.5,0,0,0-.708,0l-6,6A.5.5,0,0,0,53,38.5v2a.5.5,0,0,0,.5.5h2a.5.5,0,0,0,.354-.146l6-6A.5.5,0,0,0,61.854,34.146ZM54,40V38.707l5.5-5.5L60.793,34.5l-5.5,5.5Zm-2,.5a.5.5,0,0,1-.5.5h-2a.5.5,0,0,1,0-1h2A.5.5,0,0,1,52,40.5Zm0-3a.5.5,0,0,1-.5.5h-2a.5.5,0,0,1,0-1h2A.5.5,0,0,1,52,37.5ZM54.5,35h-5a.5.5,0,0,1,0-1h5a.5.5,0,0,1,0,1Z" transform="translate(-46 -28)"/>
+              </svg>
+              <span class="mt-1 ml-1">Records</span>
+            </li>
+          </a>
+          <a class="rounded-lg" href="./GatePass_Menu.html" >
+            <li class="flex transition duration-300 rounded-sm px-3 py-4 text-xs hover:text-gray-100 hover:bg-gray-800">
+              <svg fill="#f3f4f6" height="24px" width="24px" version="1.2" baseProfile="tiny" id="inventory"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 230"
+                xml:space="preserve">
+                <path d="M61.2,106h37.4v31.2H61.2V106z M61.2,178.7h37.4v-31.2H61.2V178.7z M61.2,220.1h37.4v-31.2H61.2V220.1z M109.7,178.7H147
+                          v-31.2h-37.4V178.7z M109.7,220.1H147v-31.2h-37.4V220.1z M158.2,188.9v31.2h37.4v-31.2H158.2z M255,67.2L128.3,7.6L1.7,67.4
+                          l7.9,16.5l16.1-7.7v144h18.2V75.6h169v144.8h18.2v-144l16.1,7.5L255,67.2z" />
+              </svg>
+              <span class="mt-1 ml-1">GatePass Menu</span>
+            </li>
+          </a>
+          <a class="rounded-lg" href="./Quotation.html" >
+            <li class="flex transition duration-300 rounded-sm px-3 py-4 text-xs hover:text-gray-100 hover:bg-gray-800">
+              <svg fill="#f3f4f6" height="24px" width="24px" version="1.2" baseProfile="tiny" id="inventory"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 402 512.37"  >
+      <path fill-rule="nonzero" d="M271.34 512.36H22.74c-6.11 0-11.9-2.54-16.05-6.69C2.54 501.53 0 495.94 0 489.62V22.74c0-6.32 2.54-11.9 6.69-16.05S16.42 0 22.74 0h356.15c6.32 0 11.9 2.54 16.05 6.69s6.69 9.73 6.69 16.05v357.2c.17.9.37 1.64.37 2.54 0 3.08-1.44 5.79-3.45 7.76L281.07 509.08c-1.99 1.95-6.6 3.38-9.73 3.28zM96.01 115.26l-9.09 2.46c-11.97 0-20.03-3.06-24.16-9.19-2.14-3.07-3.64-6.51-4.49-10.32-.86-3.81-1.28-8.43-1.28-13.84 0-12.19 2.28-21.09 6.84-26.68 4.56-5.6 12.76-8.39 24.59-8.39s20.06 2.81 24.69 8.44c4.64 5.63 6.95 14.51 6.95 26.63 0 9.05-1.89 16.35-5.66 21.91l7.7 4.49-5.56 12.3-20.53-3.75v-4.06zm-16.04-14.22h8.88c2.92 0 5.04-.34 6.36-1.01 1.32-.68 1.97-2.23 1.97-4.65v-27.8H88.2c-2.85 0-4.93.34-6.25 1.01-1.32.68-1.98 2.23-1.98 4.66v27.79zm69.82-36.78v39.45h3.32c2.57 0 4.44-.27 5.61-.8 1.17-.52 1.77-1.76 1.77-3.69V64.26h21.38v53.46h-10.69l-6.2-6.09c-4.28 5.13-10.37 7.69-18.28 7.69-6.35 0-10.99-1.36-13.9-4.06-2.92-2.7-4.39-7.23-4.39-13.57V64.26h21.38zm47.32 48.06c-4.45-4.66-6.69-11.78-6.69-21.33 0-9.55 2.23-16.66 6.69-21.33 4.44-4.66 11.67-7 21.65-7 9.97 0 17.2 2.34 21.64 7 4.46 4.67 6.69 11.78 6.69 21.33 0 9.55-2.23 16.67-6.69 21.33-4.44 4.66-11.67 7-21.64 7-9.98 0-17.21-2.34-21.65-7zm16.3-29.56v20.95h3.31c2.57 0 4.45-.27 5.62-.8 1.17-.52 1.76-1.76 1.76-3.69V78.27h-3.31c-2.56 0-4.45.27-5.62.8s-1.76 1.78-1.76 3.69zm39.02-4.7v-13.8h5.35v-8.55l21.38-5.34v13.89h7.38v13.8h-7.38v24.37c1.86.36 3.96.61 6.31.75l-.96 15.72c-9.77 0-16.11-.56-19.03-1.61-3.62-1.29-5.92-3-6.85-5.13-.55-1.28-.85-2.78-.85-4.49V78.06h-5.35zm62.97 20.28v4.95c9.04.9 17.85-.15 26.52-2.89l2.57 15.72c-7.99 2.14-15.9 3.2-23.74 3.2-9.98 0-17.2-2.34-21.65-7-4.45-4.66-6.68-11.78-6.68-21.33 0-9.55 2.23-16.66 6.68-21.33 4.45-4.66 11.66-7 21.6-7 9.94 0 16.8 1.36 20.58 4.06 3.78 2.71 5.66 7.77 5.66 15.18 0 6.28-2.26 9.58-6.78 12.32-4.53 2.75-12.78 4.12-24.76 4.12zm0-15.58v4.38h4.39c2.57 0 4.44-.27 5.61-.8 1.17-.52 1.77-1.76 1.77-3.69v-6.8h-4.39c-2.55 0-4.44.27-5.61.8s-1.77 4.2-1.77 6.11zM112.92 388.32c8.21 0 15.65 3.33 21.03 8.72a29.624 29.624 0 0 1 8.72 21.03c0 8.21-3.33 15.65-8.72 21.04l-.32.29c-5.36 5.21-12.67 8.42-20.71 8.42-8.21 0-15.65-3.33-21.04-8.71-5.38-5.39-8.71-12.83-8.71-21.04 0-8.21 3.33-15.65 8.71-21.03 5.39-5.39 12.83-8.72 21.04-8.72zm0-24.62c14.99 0 28.58 6.09 38.43 15.92l.03.04c9.83 9.84 15.91 23.43 15.91 38.41 0 15.01-6.09 28.61-15.92 38.45l-.32.29c-9.82 9.66-23.29 15.64-38.13 15.64-15.01 0-28.61-6.09-38.45-15.93-9.84-9.84-15.92-23.44-15.92-38.45 0-14.99 6.09-28.59 15.94-38.43 9.82-9.85 23.42-15.94 38.43-15.94zm30.81 23.56c-7.88-7.87-18.77-12.74-30.81-12.74-12.03 0-22.92 4.87-30.8 12.75a43.382 43.382 0 0 0-12.75 30.8c0 12.03 4.87 22.92 12.75 30.8 7.88 7.88 18.77 12.75 30.8 12.75a43.4 43.4 0 0 0 30.55-12.49l.25-.26c7.88-7.88 12.75-18.77 12.75-30.8 0-12.04-4.87-22.93-12.74-30.81zm-45.65-196.1c-4.03 0-7.3-3.27-7.3-7.3 0-4.04 3.27-7.31 7.3-7.31H244.5c4.04 0 7.31 3.27 7.31 7.31 0 4.03-3.27 7.3-7.31 7.3H98.08zm0 112.1c-4.03 0-7.3-3.27-7.3-7.3 0-4.03 3.27-7.31 7.3-7.31h201.91c4.03 0 7.3 3.28 7.3 7.31 0 4.03-3.27 7.3-7.3 7.3H98.08zm0-44.62c-4.03 0-7.3-3.26-7.3-7.3 0-4.03 3.27-7.3 7.3-7.3H244.5c4.04 0 7.31 3.27 7.31 7.3 0 4.04-3.27 7.3-7.31 7.3H98.08zm232.66-35.13H71.26v99.8h259.48v-99.8zM71.26 208.9h259.48v-52.18H71.26v52.18zm-7.31-66.79h274.09c4.03 0 7.3 3.27 7.3 7.31v181.19c0 4.03-3.27 7.3-7.3 7.3H63.95c-4.03 0-7.3-3.27-7.3-7.3V149.42c0-4.04 3.27-7.31 7.3-7.31zm198.73 349.85v-88.95c0-8.5 3.45-16.26 9.03-21.84a30.85 30.85 0 0 1 21.84-9.03h87.31V22.7c0-.53-.17-1.27-.74-1.64-.37-.37-.9-.74-1.64-.74H22.54c-.54 0-1.28.17-1.64.74-.38.37-.74 1.07-.74 1.64v466.92c0 .74.16 1.27.74 1.64.36.37.9.74 1.64.74h240.14v-.04zm20.4-88.95v74.5l83.9-84.97h-73.43c-2.88 0-5.42 1.27-7.39 3.08-1.85 1.8-3.08 4.51-3.08 7.39z"/>
+              </svg>
+              <span class="mt-1 ml-1">Quotation</span>
+            </li>
+          </a>
+        </ul>
+      </div>
+      
+            <!-- menu section End here -->
+    </div>
+  </nav>
+
+<!-- Navigation ends here  -->
+
+	<!--Container-->
+	<div class="container w-full md:w-4/5   mx-auto px-2">
+
+
+
+		<!--Card-->
+		<div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow indexPageTable bg-white">
+
+
+			<table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+				<thead>
+					<tr>
+						<th data-priority="2">No</th>
+						<th data-priority="1">Name</th>
+						<th data-priority="3">Location</th>
+						<th data-priority="3">Phone Number</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+
+			</table>
+
+
+		</div>
+		<!--/Card-->
+
+
+	</div>
+	<!--/container-->
+
+
+
+<div id="modalBackground" class="fixed z-50 inset-0 overflow-y-auto bg-gray-400 bg-opacity-75 transition duration-300 ease-in-out hidden">
+  <div class="relative top-1/2 sm:top-auto sm:h-screen flex items-center justify-center">
+      <div id="trialEndingModal" class="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-md p-8 text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12 text-red-500 mb-4" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M8.944 13.342a1 1 0 01-1.888 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.888 0L10 8.586l2.944-2.944a1 1 0 011.888 1.414l-4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+              <path fill-rule="evenodd" d="M10 15a5 5 0 100-10z" clip-rule="evenodd" />
+          </svg>
+          <h5 id="trialMessageHeading" class="text-xl font-bold text-gray-800">Trial Ending Soon!</h5>
+          <p id="trialMessage" class="text-base text-gray-500">Your trial period ends in 15 days!</p>
+          <div class="flex justify-center mt-4">
+              <button id="continueButton" type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 transition duration-300 ease-in-out">Continue</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Trail period modal End here -->
+
+<!-- Backup section Start here -->
+
+<div class="Backupcontainer hidden text-center container w-full md:w-4/5 mx-auto ">
+  <button id="backupButton" class="text-white px-4 py-2 rounded shadow">
+    Backup
+  </button>
+</div>
+
+
+
+
+    <div id="Backupmodal" wire:loading class="hidden fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-700  flex flex-col items-center justify-center">
+      <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+      <h2 class="text-center text-white text-xl font-semibold">Loading...</h2>
+      <p id="message" class=" w-1/3 text-center mt-8 text-white">This may take a few seconds, please don't close this page.</p>
+    </div>
+
+
+
+<!-- Backup section End here -->
+
+
+  <!-- Footer Section Start here  -->
+  <!-- this section is for footer adjustment -->
+  <div class="flex-1">
+
+  </div>
+  
+
+
+<footer class="mt-2 md:mt-6 bg-gray-800 p-4 pt-5 pb-2 sticky bottom-0">
+  <div class="container mx-auto md:px-16">
+    <div class="flex flex-wrap sm:flex-row justify-between items-center">
+      <div class="footer-left text-gray-300 text-center sm:text-left w-full md:w-1/3"> <span
+          class="text-gray-500 md:text-gray-300">Developed by: |</span>
+        <span class="text-sm md:text-base hover:text-gray-100 hover:text-sm hover:font-semibold text-right">Hassan Tariq
+          &
+          Team</span>
+      </div>
+      <div class="footer-right text-gray-300 text-center sm:text-right w-full md:w-1/3"> <span
+          class="text-gray-500 md:text-gray-300">Email Us: | </span>
+        <a class="hover:text-gray-100 hover:text-sm hover:font-semibold" href="mailto:raohassan57@gmail.com"
+          target="_blank">
+          <span class="text-right">raohassan57@gmail.com</span>
+        </a>
+      </div>
+    </div>
+    <div class="text-center text-gray-400 text-xs mt-1 md:mt-0">All Rights Reserved</div>
+  </div>
+</footer>
+
+  <!-- Footer Section End here  -->
+
+<!-- Entry Animation Start here  -->
+<div style="display: none;" class="logo-container">
+  <img src="./Images/ProjectImgs/Entry_Logo.png" alt="Logo" class="logo">
+</div>
+<!-- Entry Animation End here  -->
+
+
+
+<style>
+  /* since nested groupes are not supported we have to use 
+     regular css for the nested dropdowns 
+  */
+  li>ul                 { transform: translatex(100%) scale(0) }
+  li:hover>ul           { transform: translatex(101%) scale(1) }
+  li > button svg       { transform: rotate(-90deg) }
+  li:hover > button svg { transform: rotate(-270deg) }
+
+  /* Below styles fake what can be achieved with the tailwind config
+     you need to add the group-hover variant to scale and define your custom
+     min width style.
+  	 See https://codesandbox.io/s/tailwindcss-multilevel-dropdown-y91j7?file=/index.html
+  	 for implementation with config file
+  */
+  .group:hover .group-hover\:scale-100 { transform: scale(1) }
+  .group:hover .group-hover\:-rotate-180 { transform: rotate(180deg) }
+  .scale-0 { transform: scale(0) }
+  .min-w-32 { min-width: 8rem }
+</style>
+
+  <script>
+
+
+
+
+    var tData = []
+
+    var days = {
+  visibility : false ,
+  trialMessageHeading : "Trial Ending Soon!",
+  trialMessage : "Your trial period ends in 15 days!",
+}
+
+
+
+// Get All Creater from backend Start here 
+
+
+
+
+// Create a new XMLHttpRequest object
+const xhr = new XMLHttpRequest();
+
+// Open a GET request to the specified URL in synchronous mode
+xhr.open('GET', 'https://ledgerbook3-n17dzrms.b4a.run/api/home', false); // The third parameter 'false' indicates synchronous mode
+
+try {
+  // Send the request
+  xhr.send();
+
+  // Check if the request was successful
+  if (xhr.status === 200) {
+    // Parse the JSON response
+    const response = JSON.parse(xhr.responseText);
+
+
+    // Extract creater and days data from the response
+    let { creater, trial } = response;
+
+    // Set the tData variable to the creater data
+    tData = creater;
+    days = trial
+    // Call the function to initially toggle visibility and update days left
+    modalVisibilityAndDaysUpdate();
+
+    // Call the render function with tData and days
+    render(tData);
+
+  } else {
+    console.error('Failed to fetch data:', xhr.status);
+  }
+} catch (error) {
+  console.error('Error fetching data:', error);
+}
+
+
+
+
+
+// Get All Creater from backend End here 
+
+// Render Functionality start here 
+function render(dataArray) {
+  var tbodyelem = document.getElementsByTagName('tbody')[0]
+
+var TotalRow = ''
+dataArray.map(item => {
+  
+var tr = `					
+        <tr onclick="redirectToHomeWithCreaterId(${item?.no})">
+          <td>${item?.no}</td>
+          <td>${item?.name}</td>
+          <td>${item?.officeLocation}</td>
+          <td>0${item?.phone}</td>
+        </tr>
+      `
+  
+    TotalRow += tr
+});
+
+tbodyelem.innerHTML = TotalRow
+}
+
+
+
+
+// Trial Ending functionality start here 
+
+// Function to close the modal when clicked outside
+function closeModalOnClickOutside(event) {
+  const modalBackground = document.getElementById('modalBackground');
+    const trialEndingModal = document.getElementById('trialEndingModal');
+    const continueButton = document.getElementById('continueButton');
+
+    // Check if the clicked element is the modal background or outside the modal content
+    if (!trialEndingModal.contains(event.target)) {
+        // Hide the modal background
+        modalBackground.classList.add('hidden');
+    }
+    // Check if the clicked element is the modal background or outside the modal content
+    if (continueButton.contains(event.target)) {
+        // Hide the modal background
+        modalBackground.classList.add('hidden');
+    }
+}
+
+
+// Redirect to home page start here 
+
+function redirectToHomeWithCreaterId(createrId) {
+    // Construct the URL with the provided CreaterId
+    const url = `/Home.html?CreaterId=${createrId}`;
+
+    // Redirect the user to the constructed URL
+    window.location.href = url;
+}
+
+
+// Redirect to home page End here 
+
+
+// Function to toggle modal visibility and update days left
+function modalVisibilityAndDaysUpdate() {
+  // Get the modal background element
+  const modalBackground = document.getElementById('modalBackground');
+
+  // Get the element displaying trialMessage
+document.getElementById('trialMessage').textContent = days.trialMessage
+
+  // Get the element displaying trialMessageHeading
+document.getElementById('trialMessageHeading').textContent = days.trialMessageHeading
+
+  // // Update trialMessage
+  // trialMessageElement.textContent = days.trialMessage;
+
+  // // Update trialMessageHeading
+  // trialMessageHeadingElement.textContent = days.trialMessageHeading;
+
+// Toggle visibility of modal background
+if (days.visibility) {
+  modalBackground.classList.remove('hidden');
+} else {
+  modalBackground.classList.add('hidden');
+}
+
+}
+
+
+
+
+// Add event listener to the document to handle clicks
+document.addEventListener('click', closeModalOnClickOutside);
+
+
+
+// Trial Ending functionality End here 
+
+    // JavaScript to trigger the reveal animation after 1 second (1000 milliseconds)
+    setTimeout(function() {
+        document.getElementById('recipients').classList.add('reveal');
+    }, 800);
+
+
+// Backup Button Script Start here
+const backupButton = document.getElementById('backupButton');
+const modal = document.getElementById('Backupmodal');
+const message = document.getElementById('message');
+
+backupButton.addEventListener('click', async () => {
+  modal.classList.remove('hidden'); // Show modal
+
+  try {
+    const response = await fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Home/backup');
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+
+    message.textContent = 'Backup successful!'; // Success message
+    // message.classList.remove('hidden');
+    message.classList.add('text-green-400','text-4xl'); // Green color for success
+  } catch (error) {
+    message.textContent = 'Backup failed!'; // Error message
+    // message.classList.remove('hidden');
+    message.classList.add('text-red-600','text-4xl'); // Red color for error
+  } finally {
+    // Always hide the modal after 2 seconds
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      // message.textContent = ''; // Reset message
+      message.classList.remove('text-green-400', 'text-red-600', 'text-4xl');
+    }, 2000);
+  }
+});
+
+// Backup Button Script End here
+
+
+
+</script>
+
+
+    <!-- jQuery -->
+	<script type="text/javascript" src="./js/jquery/jquery-3.4.1.min.js"></script>
+
+	<!-- Datatables -->
+	<script src="./js/dataTables/jquery.dataTables.min.js"></script>
+	<script src="./js/dataTables/dataTables.responsive.min.js"></script> 
+	<script>
+		$(document).ready(function() {
+
+			var table = $('#example').DataTable({
+					responsive: true
+				})
+				.columns.adjust()
+				.responsive.recalc();
+		});
+	</script> 
+
+</body>
+
+</html>

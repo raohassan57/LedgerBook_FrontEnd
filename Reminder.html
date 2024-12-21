@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Reminders</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="apple-touch-icon" sizes="152x152" href="./Images/ProjectImgs/Favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./Images/ProjectImgs/Favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./Images/ProjectImgs/Favicon/favicon-16x16.png">
+	<link rel="manifest" href="./Images/ProjectImgs/Favicon/site.webmanifest">
+	<link rel="mask-icon" href="./Images/ProjectImgs/Favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+
+
+	<link href="./css/tailwind/tailwind@2.2.19.min.css" rel=" stylesheet">
+	<!--Replace with your tailwind.css once created-->
+
+
+	<!--Regular Datatables CSS-->
+	<link href="./css/jquery.dataTables/jquery.dataTables.min.css" rel="stylesheet">
+	<!--Responsive Extension Datatables CSS-->
+	<link href="./css/jquery.dataTables/responsive.dataTables.min.css" rel="stylesheet">
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
+
+	<link href="./css/index.css" rel="stylesheet" >
+
+
+
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-900  text-gray-900 tracking-wider leading-normal">
+
+  <!-- Navigation Menu -->
+  <nav class="flex flex-col md:flex-row justify-between items-center bg-gray-800 text-white p-4 rounded-md mb-8">
+    <!-- Home Icon -->
+	<a class="z-10" href="./index.html">
+    <div class="flex items-center space-x-2 mb-4 md:mb-0">
+      <!-- SVG Icon for Home -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current text-white" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 3.293l6.146 6.147a.5.5 0 0 1-.708.708L10 4.707l-5.439 5.439a.5.5 0 0 1-.708-.708L10 3.293zM2 7.5a.5.5 0 0 1 .5-.5h1.854l5.5 5.5H14.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-5z"/>
+      </svg>
+      <!-- Text for Home -->
+      <span>Home</span>
+    </div>
+	</a>
+    <!-- Pagination for Current Path -->
+    <div class="pagination text-lg font-semibold mb-4 md:mb-0">Reminders</div>
+    <!-- Buttons for Inventory and Create Ledger -->
+    <div class="flex items-center space-x-4">
+      <a href="./My_Store.html" class="bg-red-700 hover:bg-red-800 text-white px-2 py-1 rounded-md transition duration-300">Inventory</a>
+      <a href="./Ledger.html"
+      class="bg-green-600 hover:bg-green-700 text-white px-2 py-1 rounded-md transition duration-300">Create Ledger</a>
+      <a href="./Order.html" class="bg-indigo-500 hover:bg-indigo-600 text-white px-2 py-1 rounded-md transition duration-300">Create Order</a>
+    </div>
+  </nav>
+
+<!-- Navigation ends here  -->
+
+	<!--Container-->
+	<div class="container w-full md:w-4/5   mx-auto px-2">
+
+
+
+		<!--Card-->
+		<div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow indexPageTable ">
+      
+	<!-- Component Start -->
+	<h1 class="text-lg text-gray-400 ml-4 font-medium relative">
+    Reminders :
+    <span class="absolute top ml-2 text-2xl" id="ReminderNumber">0</span>
+</h1>
+	<div class="flex flex-col mt-6">
+		<div class="my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+			<div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+				<div class="shadow overflow-hidden sm:rounded-lg">
+					<table id="ReminderTable" class="min-w-full text-sm text-gray-300">
+						<thead class=" bg-gray-800 text-xs  font-medium">
+							<tr>
+								<th scope="col" class="px-6 py-3 text-left tracking-wider">
+									Phone No
+								</th>
+								<th scope="col" class="px-6 py-3 text-left tracking-wider">
+									Name
+								</th>
+								<th scope="col" class="px-6 py-3 text-left tracking-wider">
+									Location
+								</th>
+								<th scope="col" class="px-6 py-3 text-left tracking-wider">
+									Promised Date
+								</th>
+								<th scope="col" class="px-6 py-3 text-left tracking-wider">
+									Total Payment
+								</th>
+								<th scope="col" class="px-6 py-3 text-left tracking-wider">
+									Remaining Payment
+								</th>
+							</tr>
+						</thead>
+						<tbody class="bg-gray-800">
+
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Component End  -->
+
+
+
+		</div>
+		<!--/Card-->
+
+
+	</div>
+	<!--/container-->
+
+
+
+
+<!-- Footer Section Start here  -->
+<div class="flex-1">
+	
+</div>
+<footer class="mt-2 md:mt-6 bg-gray-800 p-4 pt-5 pb-2 sticky bottom-0">
+	<div class="container mx-auto md:px-16">
+	  <div class="flex flex-wrap sm:flex-row justify-between items-center">
+		<div class="footer-left text-gray-300 text-center sm:text-left w-full md:w-1/3"> <span
+			class="text-gray-500 md:text-gray-300">Developed by: |</span>
+		  <span class="text-sm md:text-base hover:text-gray-100 hover:text-sm hover:font-semibold text-right">Hassan Tariq
+			&
+			Team</span>
+		</div>
+		<div class="footer-right text-gray-300 text-center sm:text-right w-full md:w-1/3"> <span
+			class="text-gray-500 md:text-gray-300">Email Us: | </span>
+		  <a class="hover:text-gray-100 hover:text-sm hover:font-semibold" href="mailto:raohassan57@gmail.com"
+			target="_blank">
+			<span class="text-right">raohassan57@gmail.com</span>
+		  </a>
+		</div>
+	  </div>
+	  <div class="text-center text-gray-400 text-xs mt-1 md:mt-0">All Rights Reserved</div>
+	</div>
+  </footer>
+
+<!-- Footer Section End here  -->
+
+
+
+
+<script>
+	var tData = [
+	]
+
+
+// Get All Creater from backend Start here 
+
+fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Reminder/')
+  .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+  })
+  .then(data => {
+     // Assuming the response data contains createrName, createrLocation, and createrPhone
+      tData = data
+      console.log(data);
+      document.getElementById("ReminderNumber").innerText = data.length || 0
+      render(tData)
+  })
+  .catch(error => {
+      console.log('Phoe NO Not Found:', error);
+  });
+
+
+
+render(tData);
+
+
+// Get All Creater from backend End here 
+
+// Render Functionality start here 
+function render(dataArray) {
+  var tbodyelem = document.getElementsByTagName('tbody')[0]
+console.log(dataArray);
+var TotalRow = ''
+dataArray.map(item => {
+  
+  const PromisedPaymentDate = item.PromisedPaymentDate ?  item.PromisedPaymentDate.split('T')[0] : ""
+var tr = `					
+							
+<tr onclick="redirectToLedger('${item?.LedgerId}')" class="bg-black text-gray-500 transition duration-300 hover:bg-gray-700 hover:text-gray-300  bg-opacity-20">
+								<td class="flex px-6 py-6 whitespace-nowrap">
+									<span class="ml-2 font-medium">0${item?.phone}</span>
+								</td>
+								<td class="px-6 py-6 whitespace-nowrap">
+									${item?.name}
+								</td>
+								<td class="px-6 py-6 whitespace-nowrap">
+									${item?.Location}
+								</td>
+								<td class="px-6 py-6 whitespace-nowrap">
+									${PromisedPaymentDate}
+								</td>
+								<td class="px-6 py-6 whitespace-nowrap pl-8">
+									${item?.Total_Payment}
+								</td>
+								<td class="px-6 py-6 whitespace-nowrap pl-8">
+									${item?.Remaining_Payment}
+								</td>
+							</tr>
+							
+      `
+  
+
+  
+    TotalRow += tr
+});
+
+tbodyelem.innerHTML = TotalRow
+}
+
+
+
+
+
+// Redirect to home page start here 
+
+function redirectToLedger(LedgerId) {
+    // Construct the URL with the provided CreaterId
+    const url = `/Ledger.html?LedgerId=${LedgerId}`;
+
+    // Redirect the user to the constructed URL
+    window.location.href = url;
+}
+
+
+// Redirect to home page End here 
+
+
+
+    // JavaScript to trigger the reveal animation after 1 second (1000 milliseconds)
+    setTimeout(function() {
+        document.getElementById('recipients').classList.add('reveal');
+    }, 800);
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

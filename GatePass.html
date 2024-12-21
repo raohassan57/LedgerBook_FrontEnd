@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GatePass</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="apple-touch-icon" sizes="152x152" href="./Images/ProjectImgs/Favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./Images/ProjectImgs/Favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./Images/ProjectImgs/Favicon/favicon-16x16.png">
+  <link rel="manifest" href="./Images/ProjectImgs/Favicon/site.webmanifest">
+  <link rel="mask-icon" href="./Images/ProjectImgs/Favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+
+
+  <link href="./css/tailwind/tailwind@2.2.19.min.css" rel=" stylesheet">
+  <!--Replace with your tailwind.css once created-->
+  <!-- Prevent caching -->
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+
+  <!--Regular Datatables CSS-->
+  <link href="./css/jquery.dataTables/jquery.dataTables.min.css" rel="stylesheet">
+  <!--Responsive Extension Datatables CSS-->
+  <link href="./css/jquery.dataTables/responsive.dataTables.min.css" rel="stylesheet">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
+
+  <link href="./css/PublicFilesCss.css" rel="stylesheet">
+
+
+
+</head>
+
+<body class="GatePassBody min-h-screen bg-gray-900 text-gray-900 tracking-wider leading-normal">
+
+
+
+  <!-- Creater Info section start here  -->
+
+
+  <div spellcheck="false" class="createrInfo mt-4 container w-11/12 mx-auto bg-white p-3 lg:p-4 rounded-md shadow-md">
+    <div class="flex flex-col lg:flex-row lg:space-x-2">
+      <!-- <div class="w-full lg:w-1/4 flex flex-col">
+        <label for="OrderId" class="block text-xs font-medium text-gray-500">Order Id</label>
+        <input type="text" id="OrderId" name="OrderId" value="#ldgjasgklgl123" readonly
+          class="outline-none mt-1 block w-full shadow-sm text-xs font-normal text-gray-700 rounded-md bg-white"
+          placeholder="OrderId">
+      </div> -->
+      <div class="w-full lg:w-1/2 flex flex-col mt-2 lg:mt-0">
+        <label for="ShopName" class="block text-xs md:text-base font-medium text-gray-500">Shop Name</label>
+        <input type="text" id="ShopName" name="ShopName"  readonly
+          class="outline-none mt-1 block w-full shadow-sm text-xs md:text-lg font-normal text-gray-700 rounded-md bg-white"
+          placeholder="Customer's Shop Name">
+      </div>
+      <div class="w-full lg:w-1/2 flex flex-col mt-2 lg:mt-0">
+        <label for="ShopLocation" class="block text-xs md:text-base font-medium text-gray-500">Shop Location</label>
+        <input type="text" id="ShopLocation" name="ShopLocation"  readonly
+          class="outline-none mt-1 block w-full shadow-sm text-xs md:text-lg font-normal text-gray-700 rounded-md bg-white"
+          placeholder="Shop Location">
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Creater Info section Ends here  -->
+
+  <!--Container-->
+  <div class="container w-full w-4/5 mt-8  mx-auto px-2">
+
+    <!-- GatePassTable STart-->
+
+    <div id='GatePassTable' class="p-4 mt-4 rounded shadow bg-white sm:p-8 sm:mt-6 md:mx-10 lg:mt-0">
+
+      <table class="w-full sm:border-x border-gray-200">
+        <thead>
+          <tr>
+            <th
+              class="text-left px-2 py-1 text-xs md:text-base font-medium text-gray-500 camelcase tracking-wider border-b border-r border-gray-200 sm:px-4 sm:py-2"
+              data-priority="3">No</th>
+            <th
+              class="text-left px-2 py-1 text-xs md:text-base font-medium text-gray-500 camelcase tracking-wider border-b border-r border-gray-200 sm:px-4 sm:py-2"
+              data-priority="1">Item Name</th>
+            <th
+              class="text-left px-2 py-1 text-xs md:text-base font-medium text-gray-500 camelcase tracking-wider border-b border-gray-200 sm:px-4 sm:py-2"
+              data-priority="2">Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+
+    </div>
+
+
+
+    <!--/GatePassTable End-->
+
+
+
+
+    <!-- Main Section -->
+    <div class="flex justify-between p-4 ">
+      <!-- Checkbox with label -->
+      <div class="invisible">
+        <label for="deliveredCheckbox" class="inline-flex items-center">
+          <span class=" text-gray-300">Delivered : </span>
+          <input type="checkbox" id="deliveredCheckbox" class="ml-2 form-checkbox text-green-500">
+        </label>
+      </div>
+
+      <div >
+              <!-- Delete button -->
+              <button id="DeleteButton" class="bg-gray-500 text-white px-4 py-2 rounded">
+                Delete
+              </button>
+        
+              <!-- OpenOrder button -->
+              <button  class=" ml-4 text-white rounded">
+                
+                <a id="OpenOrderButton" href="./Order.html?OrderID=" target="_blank" class="flex px-3 py-2 bg-indigo-700 0 transition-colors trasition-500 mr-1 text-white font-semibold rounded">                
+                  <span class="ml-1 ">Open Order</span>
+                </a>
+                
+              </button>
+      </div>
+    </div>
+
+
+  </div>
+  <!--/container-->
+
+<!-- Login popup Start here  -->
+<!-- ====== Forms Section Start -->
+
+
+  <!-- Trigger Button -->
+  <!-- <button id="openModalBtn" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Open Modal</button> -->
+
+  <!-- Modal Background -->
+  <div id="modalBackground" class="z-50 fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-80 hidden">
+    <!-- Modal Container -->
+    <div class="rounded-lg shadow-lg max-w-md w-full p-6">
+      <section class="">
+        <div class="container mx-auto">
+          <div class="flex flex-wrap mx-2">
+            <div class="w-full">
+              <div class="mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-8 px-10 text-center sm:px-12 md:px-[60px] dark:bg-dark-2">
+                  <div class="mx-auto inline-block max-w-[80px]">
+                    <img src="./Images/ProjectImgs/Entry_Logo.png" alt="logo" />
+                  </div>
+                <form id="userCheckForm">
+                  <div class="mb-4">
+                    <input type="text" placeholder="Email" id="email" class="w-full px-5 py-3 text-base bg-transparent border rounded-md outline-none border-stroke text-body-color dark:text-white dark:border-dark-3 focus:border-primary focus-visible:shadow-none" />
+                  </div>
+                  <div class="mb-4">
+                    <input type="password" placeholder="Password" id="password" class="w-full px-5 py-3 text-base bg-transparent border rounded-md outline-none border-stroke text-body-color dark:text-white dark:border-dark-3 focus:border-primary focus-visible:shadow-none" />
+                  </div>
+                  <div class="mb-6">
+                    <button type="submit" class="w-full px-5 py-3 text-base font-medium text-white transition border rounded-md cursor-pointer bg-indigo-700 hover:bg-opacity-90">Sign In</button>
+                  </div>
+                  <div id="responseMessage" class="text-red-500"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+<div class="fixed  hidden inset-0 bg-black opacity-50 z-50 transition duration-300 ease-in-out">
+  <div class="relative mx-auto my-auto bg-white p-4 rounded-lg">
+    <div class="opacity-100">
+
+    </div>
+    </div>
+</div>
+
+<!-- ====== Forms Section End -->
+
+
+<!-- Login popup End here  -->
+
+
+
+  <!-- Footer Section Start here  -->
+  <!-- this section is for footer adjustment -->
+
+  
+<!-- 
+
+<footer class="z-0 mt-2 md:mt-6 bg-gray-800 p-4 pt-1 pb-2 sticky bottom-0">
+  <div class="container mx-auto md:px-16">
+    <div class="flex flex-wrap sm:flex-row justify-between items-center">
+      <div class="footer-left text-gray-300 text-center sm:text-left w-full md:w-1/3"> <span
+          class="text-xs md:text-sm hidden md:inline-block text-gray-500 md:text-gray-300">Developed by: |</span>
+        <span class="text-xs md:text-sm md:inline-block md:text-base hover:text-gray-100 hover:text-sm hover:font-semibold text-right">Hassan Tariq
+          &
+          Team</span>
+      </div>
+      <div class="footer-right text-gray-300 text-center sm:text-right w-full md:w-1/3"> <span
+          class="text-xs md:text-sm hidden md:inline-block text-gray-500 md:text-gray-300">Email Us: | </span>
+        <a class="hover:text-gray-100 hover:text-sm hover:font-semibold" href="mailto:raohassan57@gmail.com"
+          target="_blank">
+          <span class="text-right text-xs md:text-sm  md:inline-block">raohassan57@gmail.com</span>
+        </a>
+      </div>
+    </div>
+    <div class="text-center text-gray-400 text-xs mt-1 md:mt-0">All Rights Reserved</div>
+  </div>
+</footer> -->
+
+
+<footer class="z-0 mt-2 md:mt-6 bg-gray-800 p-4 md:pt-5 pt-1 pb-2 sticky bottom-0">
+  <div class="container mx-auto md:px-16">
+    <div class="w-full flex flex-wrap sm:flex-row justify-between items-center">
+      <div class="footer-left text-gray-300 text-center sm:text-left w-full md:w-1/3">
+        <span class="text-xs md:text-sm hidden md:inline text-gray-500 md:text-gray-300">Developed by: |</span>
+        <span class="text-xs md:text-sm sm:inline text-right">
+          <span class="hover:text-gray-100 hover:text-sm hover:font-semibold">Hassan Tariq & Team</span>
+          <a class="hover:text-gray-100 md:hidden  hover:text-sm hover:font-semibold" >
+            <span class="text-right text-xs  md:text-sm"> (raohassan57@gmail.com)</span>
+          </a>
+        </span>
+      </div>
+      <div class="footer-right text-gray-300 hidden md:inline text-center sm:text-right w-full md:w-1/3">
+        <span
+        class="text-gray-500 md:text-gray-300">Email Us: | </span>
+        <a class="hover:text-gray-100  hover:text-sm hover:font-semibold" href="mailto:raohassan57@gmail.com" target="_blank">
+          <span class="text-right text-xs md:text-sm"> raohassan57@gmail.com</span>
+        </a>
+        </div>
+    </div>
+    <div class="text-center text-gray-400 text-xs mt-1 md:mt-0">All Rights Reserved</div>
+  </div>
+</footer>
+
+
+
+
+  <!-- Footer Section End here  -->
+
+
+
+</body>
+
+<script>
+
+// url for gatepass qr code 
+// "http://127.0.0.1:5500/public/GatePass.html?SK=t&GatePassID=ggssgklsg"
+
+const urlParams = new URLSearchParams(window.location.search);
+    
+    const gatePassId = urlParams.get('GatePassID'); 
+    const StoreKeeper = urlParams.get('SK');
+    
+
+  // Show Save Button when checked 
+  const DeleteButton = document.getElementById('DeleteButton');
+  const deliveredCheckbox = document.getElementById('deliveredCheckbox');
+
+
+
+
+
+
+
+  // // Save the Data 
+  // saveButton.onclick = async function () {
+  //   var data , url;
+  //   var NotDeliveredList = [];
+  //   if (StoreKeeper) {
+
+  //     if (!deliveredCheckbox.checked) {
+
+  //     return;
+  //   }
+
+  //     const token = localStorage.getItem('authToken');
+
+  //     if (!token) {
+  //       openSignInModal()
+  //       return;
+  //     }
+  //     if (!gatePassId) {
+  //       return;
+  //     }
+
+  //     url = 'https://ledgerbook3-n17dzrms.b4a.run/api/public/Gatepass/SaveGatePassPublic';
+  //     data = {
+  //       token: token,
+  //       gatePassId: gatePassId,
+  //       NotDeliveredList: NotDeliveredList
+  //     };
+
+  //   } else {
+  //     if (!gatePassId) {
+  //       return;
+  //     }
+
+  //     url = 'https://ledgerbook3-n17dzrms.b4a.run/api/GatepassMenu/SaveGatePass';
+  //     data = {
+  //       gatePassId: gatePassId,
+  //       CheckBoxStatus: deliveredCheckbox.checked
+  //     };
+
+  //   }
+    
+  //   // Gettting Not Deliverd List here
+  //   const tbody = document.getElementById('GatePassTable');
+  //   const rows = tbody.querySelectorAll('tr');
+
+
+  //   rows.forEach(row => {
+  //       if (row.classList.contains('bg-red-300')) {
+  //           const tds = row.querySelectorAll('td');
+  //           const ProductName = tds[1].textContent.trim();
+  //           const Quantity = tds[2].textContent.trim();
+
+  //           NotDeliveredList.push({
+  //               ProductName: ProductName,
+  //               Quantity: Quantity
+  //           });
+  //       }
+  //   });
+
+
+  //   try {
+  //       const response = await fetch(url, {
+  //           method: 'POST', // Use the appropriate HTTP method, usually 'POST'
+  //           headers: {
+  //               'Content-Type': 'application/json' // Set the content type to JSON
+  //           },
+  //           body: JSON.stringify(data) // Convert the data object to a JSON string
+  //       });
+
+  //       if (!response.ok) {
+  //           console.log('Network response was not ok ' + response.statusText);
+  //       }
+  //       if (StoreKeeper) {
+  //         saveButton.classList.add('hidden');
+  //       }else{
+  //         window.location.reload();
+  //       }
+  //   } catch (error) {
+  //       console.error('Error:', error);
+  //   }
+
+
+  // }
+
+
+
+
+
+
+const modalBackground = document.getElementById('modalBackground');
+const userCheckForm = document.getElementById('userCheckForm');
+const responseMessage = document.getElementById('responseMessage');
+
+
+  function openSignInModal() {
+    modalBackground.classList.remove('hidden')
+}
+
+  function closeSignInModal() {
+    modalBackground.classList.add('hidden');
+}
+
+
+// modalBackground.addEventListener('click', (event) => {
+//     if (event.target === modalBackground) {
+//       closeSignInModal()
+
+//     }
+// });
+
+// "SaveGatePassPublic"
+
+
+  userCheckForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const username = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    if (!email || !password) {
+        responseMessage.textContent = 'Please fill in both fields.';
+        return;
+    }
+
+    try {
+        const response = await fetch('https://ledgerbook3-n17dzrms.b4a.run/api/public/Gatepass/UserLogin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            responseMessage.textContent = 'Login successful!';
+            modalBackground.classList.add('hidden');
+            console.log(result.token);
+            localStorage.setItem('authToken', result.token);
+            GetGatePass()
+        } else {
+            responseMessage.textContent = result.message || 'An error occurred. Please try again.';
+        }
+    } catch (error) {
+        responseMessage.textContent = 'An error occurred. Please try again.';
+    }
+});
+
+
+
+
+
+
+
+// Fetch GatePass Functionality Start here 
+
+
+
+
+    // Example function to make an authenticated request
+    async function GetGatePass() {
+    let data = ""
+    if (gatePassId == "" || !gatePassId || gatePassId == undefined) {
+      console.log('please provide gatePassId');
+      return
+    }
+
+
+
+      if (StoreKeeper) {
+        DeleteButton.classList.add('hidden')
+        const token = localStorage.getItem('authToken');
+
+        if (!token) {
+          openSignInModal()
+          return;
+        }
+
+        try {
+
+          const response = await fetch('https://ledgerbook3-n17dzrms.b4a.run/api/public/Gatepass/GetGatePass', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ token , gatePassId }) // Include the token in the body
+        });
+
+
+
+        data = await response.json();
+
+        if (response.status == 401) {
+          openSignInModal()
+        }
+
+
+
+        if (response.ok) {
+          
+          // console.log('Protected data:', data);
+          RenderGatePass(data)
+        } else {
+          console.log('Failed to fetch protected data: ' , data.message);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+
+
+
+      } else {
+        // if it is not StoreKeeper 
+        try {
+
+        const response = await fetch('https://ledgerbook3-n17dzrms.b4a.run/api/GatepassMenu/GetGatePass', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ gatePassId }) // Include the token in the body
+        });
+
+
+
+        data = await response.json();
+
+        if (response.ok) {
+          
+          // console.log('Protected data:', data);
+          RenderGatePass(data)
+        } else {
+          console.log('Failed to fetch protected data: ' , data.message);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+
+      }
+    
+    }
+
+
+GetGatePass()
+
+// Fetch GatePass Functionality End here 
+// Render GatePass Functionality Start here 
+function RenderGatePass(GatePassData) {
+
+  ShopName.value = GatePassData.DeliveryDetails.ShopName
+  ShopLocation.value = GatePassData.DeliveryDetails.ShopLocation
+  deliveredCheckbox.checked = GatePassData.DeliveryStatus.Delivered
+  const OrderID = GatePassData.OrderID
+  // Adding OrderID in open order button Start
+
+if (OrderID) {
+  const OpenOrderButton = document.getElementById('OpenOrderButton')
+
+  OpenOrderButton.href= OpenOrderButton.href + OrderID 
+
+}
+// Adding OrderID in open order button End
+
+    if (StoreKeeper && GatePassData.DeliveryStatus.Delivered) {
+      saveButton.classList.add('hidden')
+    }
+
+  
+  var HtmlToRender = ""
+
+  GatePassData.ProductList.forEach((elem, index)=>{
+    HtmlToRender+= `<tr>
+            <td class="px-2 py-1 text-left text-xs md:text-base border-b border-gray-200 sm:px-4 sm:py-2">${index + 1}</td>
+            <td class="px-2 py-1 text-left text-xs md:text-base border-b border-gray-200 sm:px-4 sm:py-2">${elem.ProductName}</td>
+            <td class="px-2 py-1 text-left text-xs md:text-base border-b border-gray-200 sm:px-4 sm:py-2">${elem.Quantity}</td>
+          </tr>`
+  })
+
+  const Tbody = document.querySelector('tbody').innerHTML = HtmlToRender
+
+  if (StoreKeeper && !GatePassData.DeliveryStatus.Delivered) {
+    RedListFunction()
+  }
+
+}
+
+
+// Render GatePass Functionality End here 
+
+
+
+
+
+
+
+// // Item Redlist and Whitelist Functionality Start here
+// function RedListFunction () {
+//     const tbody = document.querySelector('tbody')
+//     const rows = tbody.querySelectorAll('tr');
+
+//     rows.forEach(row => {
+//         let timer;
+
+//         const startTimer = () => {
+//             timer = setTimeout(() => {
+//                 if (row.classList.contains('bg-red-300')) {
+//                     row.classList.remove('bg-red-300');
+//                 } else {
+//                     row.classList.add('bg-red-300');
+//                 }
+//             }, 3000); // 3000 milliseconds = 3 seconds
+//         };
+
+//         const clearTimer = () => {
+//             clearTimeout(timer);
+//         };
+
+//         row.addEventListener('mousedown', startTimer);
+//         row.addEventListener('touchstart', startTimer);
+
+//         row.addEventListener('mouseup', clearTimer);
+//         row.addEventListener('mouseleave', clearTimer);
+//         row.addEventListener('touchend', clearTimer);
+//         row.addEventListener('touchcancel', clearTimer);
+//     });
+// }
+
+// Item Redlist and Whitelist Functionality End here
+// Delete GatePass with ID Funcitonality Start here
+
+
+if (!StoreKeeper) {
+  DeleteButton.addEventListener('click', DeleteWithID);
+
+}
+
+async function DeleteWithID() {
+  
+  // Function to delete a gate pass by ID
+  try {
+    const response = await fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/GatepassMenu/DeleteGatePassWithID/${gatePassId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      // Redirect to the GatePass_Menu.html if deletion is successful
+      window.location.href = './GatePass_Menu.html';
+    } else {
+      // Handle errors or unsuccessful responses
+      const errorData = await response.json();
+      console.error('Error deleting gate pass:', errorData);
+    }
+  } catch (error) {
+    console.error('Network error:', error);
+  }
+}
+
+
+
+
+// Delete GatePass with ID Funcitonality End here
+
+
+
+
+
+</script>
+
+
+
+</html>

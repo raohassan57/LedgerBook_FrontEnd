@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Order</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+  <link rel="apple-touch-icon" sizes="152x152" href="./Images/ProjectImgs/Favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./Images/ProjectImgs/Favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./Images/ProjectImgs/Favicon/favicon-16x16.png">
+  <link rel="manifest" href="./Images/ProjectImgs/Favicon/site.webmanifest">
+  <link rel="mask-icon" href="./Images/ProjectImgs/Favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+	<link href="./css/tailwind/tailwind@2.2.19.min.css" rel=" stylesheet">
+	<!--Replace with your tailwind.css once created-->
+
+
+	<!--Regular Datatables CSS-->
+	<link href="./css/jquery.dataTables/jquery.dataTables.min.css" rel="stylesheet">
+	<!--Responsive Extension Datatables CSS-->
+	<link href="./css/jquery.dataTables/responsive.dataTables.min.css" rel="stylesheet">
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
+
+	<link href="./css/index.css" rel="stylesheet" >
+
+
+
+</head>
+
+<body  class="bg-gray-900 text-gray-900 tracking-wider leading-normal overflow-auto">
+
+
+
+  <!-- Navigation Menu -->
+  <nav class="flex flex-col md:flex-row justify-between items-center bg-gray-800 text-white p-4 rounded-md mb-8">
+    <!-- Home Icon -->
+	<a href="./index.html">
+    <div class="flex items-center space-x-2 mb-4 md:mb-0">
+      <!-- SVG Icon for Home -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current text-white" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 3.293l6.146 6.147a.5.5 0 0 1-.708.708L10 4.707l-5.439 5.439a.5.5 0 0 1-.708-.708L10 3.293zM2 7.5a.5.5 0 0 1 .5-.5h1.854l5.5 5.5H14.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-5z"/>
+      </svg>
+      <!-- Text for Home -->
+      <span>Home</span>
+    </div>
+	</a>
+    <!-- Pagination for Current Path -->
+    <div class="pagination text-lg font-semibold mb-4 md:mb-0">Order</div>
+    <!-- Buttons for Inventory and Create Ledger -->
+    <div class="flex items-center space-x-4">
+        <a href="./My_Store.html"
+            class="bg-red-700 hover:bg-red-800 text-white px-2 py-1 rounded-md transition duration-300">Inventory</a>
+        <a href="./Ledger.html"
+            class="bg-green-600 hover:bg-green-700 text-white px-2 py-1 rounded-md transition duration-300">Create Ledger</a>
+    </div>
+  </nav>
+
+
+<!-- Creater Info section start here  -->
+<div spellcheck="false" class="createrInfo container w-11/12 mx-auto bg-white p-6 rounded-md shadow-md">
+  <div class="flex space-x-4">
+  <div class="w-24 ">
+    <label for="no" class="block text-sm font-bold  text-gray-700">No</label>
+    <input type="text" readonly id="createrID" name="phone" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Id">
+  </div>
+  <div class="w-1/2   rounded-lg">
+    <label for="name" class="block text-sm font-bold  text-gray-700">Name</label>
+    <input type="text" id="createrName" name="name" class="mt-1  focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md resize-none" placeholder="Customer's Shope Name">
+  </div>
+  <div class="w-full  ">
+    <label for="location" class="block text-sm font-bold  text-gray-700">Location</label>
+    <input type="text" id="createrLocation" name="location" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Shope Location">
+  </div>
+  <div class="w-52 px-2">
+    <label for="phone" class="block text-sm font-bold  text-gray-700">Phone No</label>
+    <input type="text" id="createrPhone" name="phone" class="mt-1  focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="03043467993">
+  </div>
+  <div class="w-6 ml-0 pt-4 pr-2 group flex flex-col align-bottom">
+    <svg class="hidden order-svg-rotate fill-current text-white group-hover:text-black transform transition-transform transition-colors duration-500" version="1.1" id="RefreshSvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+    width="20px" height="20px" viewBox="0 0 487.23 487.23"
+    xml:space="preserve">
+ <g>
+   <g>
+     <path d="M55.323,203.641c15.664,0,29.813-9.405,35.872-23.854c25.017-59.604,83.842-101.61,152.42-101.61
+       c37.797,0,72.449,12.955,100.23,34.442l-21.775,3.371c-7.438,1.153-13.224,7.054-14.232,14.512
+       c-1.01,7.454,3.008,14.686,9.867,17.768l119.746,53.872c5.249,2.357,11.33,1.904,16.168-1.205
+       c4.83-3.114,7.764-8.458,7.796-14.208l0.621-131.943c0.042-7.506-4.851-14.144-12.024-16.332
+       c-7.185-2.188-14.947,0.589-19.104,6.837l-16.505,24.805C370.398,26.778,310.1,0,243.615,0C142.806,0,56.133,61.562,19.167,149.06
+       c-5.134,12.128-3.84,26.015,3.429,36.987C29.865,197.023,42.152,203.641,55.323,203.641z"/>
+     <path d="M464.635,301.184c-7.27-10.977-19.558-17.594-32.728-17.594c-15.664,0-29.813,9.405-35.872,23.854
+       c-25.018,59.604-83.843,101.61-152.42,101.61c-37.798,0-72.45-12.955-100.232-34.442l21.776-3.369
+       c7.437-1.153,13.223-7.055,14.233-14.514c1.009-7.453-3.008-14.686-9.867-17.768L49.779,285.089
+       c-5.25-2.356-11.33-1.905-16.169,1.205c-4.829,3.114-7.764,8.458-7.795,14.207l-0.622,131.943
+       c-0.042,7.506,4.85,14.144,12.024,16.332c7.185,2.188,14.948-0.59,19.104-6.839l16.505-24.805
+       c44.004,43.32,104.303,70.098,170.788,70.098c100.811,0,187.481-61.561,224.446-149.059
+       C473.197,326.043,471.903,312.157,464.635,301.184z"/>
+   </g>
+ </g>
+ </svg>
+  </div>
+  </div>
+</div>
+
+
+
+<!-- Creater Info section Ends here  -->
+
+    <!-- Print Buttons Start here  -->
+    <div  class="max-w-4xl hidden h-0 relative mx-auto w-full flex  absolute">
+      <div class="flex-grow  h-0">
+    
+      </div>
+    
+    <div class="buttonContainer flex flex-col space-y-2">
+      <a target="_blank" href="./ReceiptPrint.html?OrderID=" class="flex px-3 py-2 bg-blue-400 mr-1 text-white font-semibold rounded hover:bg-blue-500 trasition duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path d="M4 6.25C4 5.00736 5.00736 4 6.25 4H14.75C15.9926 4 17 5.00736 17 6.25V14H20.5V17.25C20.5 19.0449 19.0449 20.5 17.25 20.5H7.25C5.45507 20.5 4 19.0449 4 17.25V6.25ZM17 15.5V19H17.25C18.2165 19 19 18.2165 19 17.25V15.5H17ZM15.5 19V6.25C15.5 5.83579 15.1642 5.5 14.75 5.5H6.25C5.83579 5.5 5.5 5.83579 5.5 6.25V17.25C5.5 18.2165 6.2835 19 7.25 19H15.5Z" fill="black"/>
+          <path d="M7.00001 8.75C7.00001 8.33579 7.3358 8 7.75001 8H13.25C13.6642 8 14 8.33579 14 8.75C14 9.16422 13.6642 9.5 13.25 9.5H7.75001C7.3358 9.5 7.00001 9.16422 7.00001 8.75ZM7.00001 12.25C7.00001 11.8358 7.3358 11.5 7.75001 11.5H13.25C13.6642 11.5 14 11.8358 14 12.25C14 12.6642 13.6642 13 13.25 13H7.75001C7.3358 13 7.00001 12.6642 7.00001 12.25ZM7.00001 15.75C7.00001 15.3358 7.3358 15 7.75001 15H10.25C10.6642 15 11 15.3358 11 15.75C11 16.1642 10.6642 16.5 10.25 16.5H7.75001C7.3358 16.5 7.00001 16.1642 7.00001 15.75Z" fill="black"/>
+        </svg>
+        <span class="ml-1">Print Receipt</span>
+    </a>
+    
+    <a href="./GatePassPrint.html?OrderID=" target="_blank" class="flex px-3 py-2 bg-yellow-400 hover:bg-yellow-500 transition-colors trasition-500 mr-1 text-black font-semibold rounded">
+      <svg class="h-6 w-6" viewBox="0 0 64 64" stroke-width="2" xmlns="http://www.w3.org/2000/svg" fill="none"stroke="currentColor"><rect x="16" y="32" width="32" height="24"/><line x1="24" y1="48" x2="40" y2="48"/><line x1="24" y1="40" x2="40" y2="40"/><polyline points="20 16 20 8 44 8 44 16"/><polyline points="16 40 8 40 8 16 56 16 56 40 48 40"/></svg>
+    
+      <span class="ml-1 ">Print GatePass</span>
+    </a>
+    
+    </div>
+    
+    
+    
+    </div>
+    
+    <!-- Print Buttons End here  -->
+
+<!-- Product lsitings here start  -->
+
+<div class="max-w-4xl relative mx-auto pt-12 px-6 lg:px-0 ">
+
+
+
+    <!-- Search bar and Add Product button -->
+    <div class=" mb-4 flex z-20 justify-between">
+          
+          
+  
+      <div class="w-2/3  rounded-lg shadow">
+          <div class="relative searchBarParent">
+              <input type="text" id="searchInput" class="w-full bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none"
+              placeholder="Search...">
+              <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                  <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path
+                      d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                  </svg>
+              </button>
+              <div class="bg-white suggestionList absolute overflow-auto">
+              </div>
+          </div>
+      </div>
+          <!-- Add Product buttton here  -->
+          <button id="AddNow" class="flex items-center justify-center h-10 px-3 py-1 bg-green-800 text-white hover:bg-gray-700 rounded-md transition duration-300">
+            Add Now 
+        </button>
+  </div>
+
+  
+
+  
+    <!-- Product table -->
+    <div class="overflow-x-auto z-50 pt-1">
+      <table id="My_StoreProductTabel" class="table-auto min-w-full bg-white rounded-lg overflow-hidden">
+        <thead class="text-left">
+          <tr class="bg-gray-200 bg-purple-800 text-gray-200">
+            <th class="px-4 py-2">Image</th>
+            <th class="px-4 py-2">Product Name</th>
+            <th class="px-4 py-2">Quantity</th>
+            <th class="px-4 py-2">Price</th>
+            <th class="px-4 py-2">Total</th>
+            <th class="px-4 py-2"></th>
+          </tr>
+        </thead>
+        <tbody id="OrderTableBody">
+
+        </tbody>
+      </table>
+    </div>
+    
+
+
+
+
+
+
+    
+    </div>
+  
+  <!-- Product lsitings here Ends  -->
+<!-- Product Total Section Start here  -->
+
+<div class="container bg-gray-800 rounded-xl max-w-4xl mx-auto  px-12 py-6 pb-12 mt-6">
+  <div class="card dark:bg-gray-800">
+    <div class="card-header">
+      <h4 class="card-title text-gray-100 text-center text-2xl pb-10">Bill Section</h4>
+    </div>
+    <div class="card-body">
+      <div class="flex justify-between mb-4">
+        <span class="text-base font-medium text-gray-400">Total Bill Amount:</span>
+        <span class="text-gray-300" id="totalAmount">0</span> </div>
+      <div class="flex justify-between mb-4">
+        <span class="text-base font-medium text-gray-400">Upfront Payment:</span>
+        <div class="flex items-center">
+          <span class="mr-2 text-gray-400">Rs</span>
+          <input oninput="updateRemainingPayment()" value="0" class="text-right bg-gray-800 text-gray-100 focus:outline-none w-24 border border-gray-500 rounded px-2 py-1" type="text"  id="UpfrontPayment" />
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-base font-medium text-gray-400">Remaining Payment:</span>
+        <span class="text-gray-300" id="remainingPayment">0</span> </div>
+    </div>
+  </div>
+  
+
+
+
+
+</div>
+
+<!-- Product Total Section End here  -->
+
+
+<!-- Buttons section start here -->
+<div id="buttonSection" class="flex justify-between max-w-4xl mx-auto pt-12 px-6 lg:px-0  pb-12  ">
+
+  <!-- Modal -->
+<div id="deleteModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+  <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+  <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+  </div>
+  <!-- This element is to trick the browser into centering the modal contents. -->
+  <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+  <!-- Modal panel -->
+  <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+    <div class="sm:flex sm:items-start">
+      <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+      <!-- Heroicon name: exclamation -->
+      <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.479-1.52 1.658-2.727L14.656 4.59c-.467-.875-1.453-1.406-2.442-.967L5.302 5.847c-.989.44-.56 1.528.41 1.528h-.001L18.598 19.91c1.05.469 1.05 1.47.002 1.938L5.169 21.939c-1.05.469-1.378-.57-.85-1.04L12 13l-.068.026c1.49-.717 3.114-.132 3.879 1.255C15.05 14.69 13.416 16 12 16c-1.378 0-2.5-1.122-2.5-2.5V9c0-1.378 1.122-2.5 2.5-2.5s2.5 1.122 2.5 2.5v.732c0 .74.534 1.417 1.356 1.552 1.067.175 2.12-.658 2.246-1.763.125-1.106-.724-2.127-1.857-2.276-.132-.017-.264-.025-.396-.025-1.655 0-3 1.345-3 3v2m-3 3v4a1 1 0 001 1h14a1 1 0 001-1v-4h-2m-4 0v-4m-4 4V9h8v8m-4-4h4"></path>
+      </svg>
+      </div>
+      <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+      <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+        Delete Order
+      </h3>
+      <div class="mt-2">
+        <p class="text-sm text-gray-500">
+        Are you sure you want to delete this Order? This action cannot be undone.
+        </p>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm" onclick="handleDelete()">
+      Delete
+    </button>
+    <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm" onclick="toggleDeleteModal()">
+      Cancel
+    </button>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<!-- delete  buttton here  -->
+<div id="deleteModalButton" class="pr-8 flex invisible justify-end ">
+  <button class="flex items-center justify-center px-4 py-2 bg-gray-400 text-white rounded" onclick="toggleDeleteModal()">
+    <!-- Delete Icon SVG -->
+      <svg fill="white" class="h-4 w-4 mr-2"  version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 482.428 482.429"
+        xml:space="preserve">
+        <g>
+          <g>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M381.163,57.799h-75.094C302.323,25.316,274.686,0,241.214,0c-33.471,0-61.104,25.315-64.85,57.799h-75.098
+            c-30.39,0-55.111,24.728-55.111,55.117v2.828c0,23.223,14.46,43.1,34.83,51.199v260.369c0,30.39,24.724,55.117,55.112,55.117
+            h210.236c30.389,0,55.111-24.729,55.111-55.117V166.944c20.369-8.1,34.83-27.977,34.83-51.199v-2.828
+            C436.274,82.527,411.551,57.799,381.163,57.799z M241.214,26.139c19.037,0,34.927,13.645,38.443,31.66h-76.879
+            C206.293,39.783,222.184,26.139,241.214,26.139z M375.305,427.312c0,15.978-13,28.979-28.973,28.979H136.096
+            c-15.973,0-28.973-13.002-28.973-28.979V170.861h268.182V427.312z M410.135,115.744c0,15.978-13,28.979-28.973,28.979H101.266
+            c-15.973,0-28.973-13.001-28.973-28.979v-2.828c0-15.978,13-28.979,28.973-28.979h279.897c15.973,0,28.973,13.001,28.973,28.979
+            V115.744z" />
+            <path d="M171.144,422.863c7.218,0,13.069-5.853,13.069-13.068V262.641c0-7.216-5.852-13.07-13.069-13.07
+            c-7.217,0-13.069,5.854-13.069,13.07v147.154C158.074,417.012,163.926,422.863,171.144,422.863z" />
+            <path d="M241.214,422.863c7.218,0,13.07-5.853,13.07-13.068V262.641c0-7.216-5.854-13.07-13.07-13.07
+            c-7.217,0-13.069,5.854-13.069,13.07v147.154C228.145,417.012,233.996,422.863,241.214,422.863z" />
+            <path d="M311.284,422.863c7.217,0,13.068-5.853,13.068-13.068V262.641c0-7.216-5.852-13.07-13.068-13.07
+            c-7.219,0-13.07,5.854-13.07,13.07v147.154C298.213,417.012,304.067,422.863,311.284,422.863z" />
+          </g>
+        </g>
+      </svg>
+    Delete Order
+  </button>
+</div>
+
+
+<!-- Save Modal -->
+<div id="saveModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+  <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+      </div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+      <!-- Modal panel -->
+      <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+              <div class="sm:flex sm:items-start">
+                  <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+                      <!-- Heroicon name: check -->
+                      <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                  </div>
+                  <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                      <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                          Save Order
+                      </h3>
+                      <div class="mt-2">
+                          <p class="text-sm text-gray-500">
+                              Are you sure you want to save the Order?
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+              <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm" onclick="handleSave()">
+                  <!-- Custom SVG icon for Save button -->
+                  <svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Save
+              </button>
+              <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm" onclick="toggleSaveModal()">
+                  Cancel
+              </button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Save button  -->
+
+<button id="saveModalButton" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-8 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm" onclick="toggleSaveModal()">
+Save
+</button>
+</div>
+
+
+<!-- Buttons section Ends here -->
+
+<!-- Previous Payment Section Start here  -->
+
+<div class="container  mx-auto ">
+  <div class="card bg-gray-800 rounded-xl px-12 py-6  mt-6 mb-8">
+      <div class="flex justify-between ">
+        <span class="text-base  text-gray-300  text-2xl ">Previous Payment Total :</span>
+        <span class="text-gray-300 text-2xl" id="previousPaymentTotal">0</span>
+      </div>
+  </div>
+</div>
+
+<!-- Previous Payment Section End here  -->
+
+<!-- Footer Section Start here  -->
+<footer class="mt-2 md:mt-6 bg-gray-800 p-4 pt-5 pb-2 sticky bottom-0">
+  <div class="container mx-auto md:px-16">
+    <div class="flex flex-wrap sm:flex-row justify-between items-center">
+      <div class="footer-left text-gray-300 text-center sm:text-left w-full md:w-1/3"> <span
+          class="text-gray-500 md:text-gray-300">Developed by: |</span>
+        <span class="text-sm md:text-base hover:text-gray-100 hover:text-sm hover:font-semibold text-right">Hassan Tariq
+          &
+          Team</span>
+      </div>
+      <div class="footer-right text-gray-300 text-center sm:text-right w-full md:w-1/3"> <span
+          class="text-gray-500 md:text-gray-300">Email Us: | </span>
+        <a class="hover:text-gray-100 hover:text-sm hover:font-semibold" href="mailto:raohassan57@gmail.com"
+          target="_blank">
+          <span class="text-right">raohassan57@gmail.com</span>
+        </a>
+      </div>
+    </div>
+    <div class="text-center text-gray-400 text-xs mt-1 md:mt-0">All Rights Reserved</div>
+  </div>
+</footer>
+  
+  <!-- Footer Section End here  -->
+
+</body>
+<script src="js/Order.js"></script>
+
+</html>

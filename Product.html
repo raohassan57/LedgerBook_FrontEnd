@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Product</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+  <link rel="apple-touch-icon" sizes="152x152" href="./Images/ProjectImgs/Favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./Images/ProjectImgs/Favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./Images/ProjectImgs/Favicon/favicon-16x16.png">
+  <link rel="manifest" href="./Images/ProjectImgs/Favicon/site.webmanifest">
+  <link rel="mask-icon" href="./Images/ProjectImgs/Favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+	<link href="./css/tailwind/tailwind@2.2.19.min.css" rel=" stylesheet">
+	<!--Replace with your tailwind.css once created-->
+
+
+	<!--Regular Datatables CSS-->
+	<link href="./css/jquery.dataTables/jquery.dataTables.min.css" rel="stylesheet">
+	<!--Responsive Extension Datatables CSS-->
+	<link href="./css/jquery.dataTables/responsive.dataTables.min.css" rel="stylesheet">
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
+
+	<link href="./css/index.css" rel="stylesheet" >
+
+
+
+</head>
+
+<body class="bg-gray-900 text-gray-900 tracking-wider leading-normal">
+
+
+  <!-- Navigation Menu -->
+  <nav class="flex flex-col md:flex-row justify-between items-center bg-gray-800 text-white p-4 rounded-md mb-8">
+    <!-- Home Icon -->
+	<a href="./index.html">
+    <div class="flex items-center space-x-2 mb-4 md:mb-0">
+      <!-- SVG Icon for Home -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current text-white" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 3.293l6.146 6.147a.5.5 0 0 1-.708.708L10 4.707l-5.439 5.439a.5.5 0 0 1-.708-.708L10 3.293zM2 7.5a.5.5 0 0 1 .5-.5h1.854l5.5 5.5H14.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-5z"/>
+      </svg>
+      <!-- Text for Home -->
+      <span>Home</span>
+    </div>
+	</a>
+    <!-- Pagination for Current Path -->
+    <div class="pagination text-lg font-semibold mb-4 md:mb-0">Product</div>
+    <!-- Buttons for Inventory and Create Ledger -->
+    <div class="flex items-center space-x-4">
+		<a href="./My_Store.html"
+			class="bg-red-700 hover:bg-red-800 text-white px-2 py-1 rounded-md transition duration-300">Inventory</a>
+      <a href="./Ledger.html"
+      class="bg-green-600 hover:bg-green-700 text-white px-2 py-1 rounded-md transition duration-300">Create Ledger</a>
+		<a href="./Order.html"
+			class="bg-indigo-500 hover:bg-indigo-600 text-white px-2 py-1 rounded-md transition duration-300">Create Order</a>
+    </div>
+  </nav>
+
+<!-- Product lsitings here start  -->
+
+<div class="max-w-4xl mx-auto py-6 px-6 lg:px-0">
+  <!-- Product Details View -->
+  <div class="bg-white rounded-md shadow-md p-8 flex">
+    <!-- Product Image -->
+    <div class="w-1/2">
+      <img id="MainImage" src="./Images/ProjectImgs/200_placeholder.png" alt="Product Image" class="h-full w-full  rounded-md">
+    </div>
+    <!-- Product Details -->
+    <div class="w-1/2 px-8">
+      <h2 class="text-2xl font-bold mb-4">Product Details</h2>
+      <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2">Product Name:</label>
+        <input  id="ProductName" type="text" placeholder="Example Product Name" class=" focus:outline-gray-500 border-gray-300 rounded-md w-full px-4 py-2">
+      </div>
+      <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2">Stock</label>
+        <input id="stock" type="number" value="1" class="border-gray-300 rounded-md w-full px-4 py-2">
+      </div>
+      <div class="mb-2">
+        <label class="block text-gray-700 font-semibold mb-2">Price</label>
+        <input id="price" type="number" value="100" class="border-gray-300 rounded-md w-full px-4 py-2">
+      </div>
+      <div class="mb-4">
+        <label for="ProductImage" class="block text-gray-700 font-semibold mb-2 cursor-pointer transition duration-300 hover:text-blue-500 focus:outline-none focus:text-blue-500">Upload Image:</label>
+        <input name="image" id="ProductImage" type="file">
+      </div>
+        <!-- Save Button -->
+        <div class="flex justify-between mt-2 text-right">
+          <button id="ProductDeleteBtn" class="invisible hover:bg-red-500 bg-gray-300 text-white px-2 py-2 rounded-md shadow-lg hover:shadow-2xl transition duration-300">Delete</button>
+          <button id="ProductSaveBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md shadow-lg hover:shadow-2xl transition duration-300">Save</button>
+        </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+<!-- Product lsitings here Ends  -->
+
+<!-- Footer Section Start here  -->
+<footer class="mt-2 md:mt-6 bg-gray-800 p-4 pt-5 pb-2 sticky bottom-0">
+  <div class="container mx-auto md:px-16">
+    <div class="flex flex-wrap sm:flex-row justify-between items-center">
+      <div class="footer-left text-gray-300 text-center sm:text-left w-full md:w-1/3"> <span
+          class="text-gray-500 md:text-gray-300">Developed by: |</span>
+        <span class="text-sm md:text-base hover:text-gray-100 hover:text-sm hover:font-semibold text-right">Hassan Tariq
+          &
+          Team</span>
+      </div>
+      <div class="footer-right text-gray-300 text-center sm:text-right w-full md:w-1/3"> <span
+          class="text-gray-500 md:text-gray-300">Email Us: | </span>
+        <a class="hover:text-gray-100 hover:text-sm hover:font-semibold" href="mailto:raohassan57@gmail.com"
+          target="_blank">
+          <span class="text-right">raohassan57@gmail.com</span>
+        </a>
+      </div>
+    </div>
+    <div class="text-center text-gray-400 text-xs mt-1 md:mt-0">All Rights Reserved</div>
+  </div>
+</footer>
+  
+  <!-- Footer Section End here  -->
+
+
+
+
+</body>
+<script>
+
+// JavaScript Start Here
+
+var productName = document.getElementById('ProductName');
+var stock = document.getElementById('stock')
+var price = document.getElementById('price')
+var imageFileInput = document.getElementById('ProductImage') // Get the first selected file
+const ProductSaveBtn = document.getElementById('ProductSaveBtn');
+const ProductDeleteBtn = document.getElementById('ProductDeleteBtn');
+
+
+
+// Extract ProductId from URL
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('ProductId');
+
+
+if (productId) {
+  ProductDeleteBtn.classList.remove('invisible')
+}
+
+
+
+
+// CreateNewProduct functionality start here
+
+if (!productId) {
+  ProductSaveBtn.addEventListener('click', CreateNewProduct);
+
+}
+
+function CreateNewProduct() {
+  imageFile = imageFileInput.files[0]
+  productName = productName.value;
+  stock = parseInt(stock.value);
+  price = parseInt(price.value);
+
+  // Validation
+  if (!productName || isNaN(stock) || stock < 0 || isNaN(price) || price < 0 || !imageFile) {
+    const targetElem = ProductSaveBtn.parentElement.parentElement.parentElement;
+    targetElem.classList.add('wobble');
+    setTimeout(() => {
+      targetElem.classList.remove('wobble');
+    }, 500);
+    return;
+  }
+
+
+  // Additional File Input Validation (optional)
+  if (!imageFile || imageFile.size === 0) {
+    console.error('Please select a valid image file');
+    return;
+  }
+
+  // Allowed file types (optional)
+  const allowedExtensions = ['jpg', 'jpeg', 'png'];
+  const fileExtension = imageFile.name.split('.').pop().toLowerCase();
+  if (!allowedExtensions.includes(fileExtension)) {
+    console.error('Only JPG, JPEG, and PNG files are allowed');
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('productName', productName);
+  formData.append('stock', stock);
+  formData.append('price', price);
+  formData.append('image', imageFile);
+
+
+  fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Product/NewProduct', {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => {
+      if (!response.ok) {
+        return response.json().then(responseData => {
+          if (response.status === 409) {
+            document.getElementById('ProductName').value = 'Name already exists!';
+          }
+          throw new Error(responseData.error || 'Failed to create product');
+        });
+      }
+      return response.json();
+    })
+    .then(responseData => {
+      window.location.href = `/Product.html?ProductId=${responseData.product._id}`;
+    })
+    .catch(error => {
+      console.error('Failed to create product:', error);
+    });
+}
+
+
+// CreateNewProduct functionality End here
+
+// Get Product funcitonality start here 
+if (productId !== '' && productId !== null && productId !== undefined) {
+  // Make GET request to fetch product data
+  fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/Product/${productId}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch product data');
+      }
+      return response.json();
+    })
+    .then(productData => {
+      // Use the product data as needed
+      productName.value = productData.product.productName;
+      stock.value = productData.product.stock;
+      price.value = productData.product.price;
+      document.getElementById('MainImage').src = "/Images/ProductImg/"+ productData.product.imageUrl;
+
+    })
+    .catch(error => {
+      console.error('Error fetching product data:', error);
+    });
+} else {
+  console.error('ProductId is missing in the URL');
+}
+
+// Get Product funcitonality End here 
+// Modify Product functionality start here
+if (productId) {
+  ProductSaveBtn.addEventListener('click' , ModifyProduct)
+}
+
+function ModifyProduct() {
+  imageFile = imageFileInput.files[0]
+  productName = productName.value
+  stock = parseInt(stock.value)
+  price = parseInt(price.value)
+
+  console.log(imageFile,stock,price, productName);
+
+  // Validation
+  if (!productName || !stock || isNaN(stock) || stock < 0 ) {
+    const targetElem = ProductSaveBtn.parentElement.parentElement.parentElement;
+    targetElem.classList.add('wobble');
+    setTimeout(() => {
+      targetElem.classList.remove('wobble');
+    }, 500);
+    return;
+  }
+
+
+  const formData = new FormData();
+
+if (!imageFile) {
+  formData.append('productName', productName);
+  formData.append('stock', stock);
+  formData.append('price', price);
+  formData.append('ProductId', productId);
+}else{
+  formData.append('productName', productName);
+  formData.append('stock', stock);
+  formData.append('price', price);
+  formData.append('image', imageFile);
+  formData.append('ProductId', productId);
+}
+
+
+  fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Product/ModifyProduct', {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => {
+      if (!response.ok) {
+        return response.json().then(responseData => {
+          if (response.status === 409) {
+            document.getElementById('ProductName').value = 'Name already exists!';
+          }
+          throw new Error(responseData.error || 'Failed to create product');
+        });
+      }
+      return response.json();
+    })
+    .then(responseData => {
+      console.log(responseData);
+      window.location.href = `/Product.html?ProductId=${responseData.product._id}`
+    })
+    .catch(error => {
+      console.error('Failed to create product:', error);
+    });
+}
+
+
+
+// Modify Product functionality End here
+
+// Delete Product functionality start here 
+if (productId) {
+  ProductDeleteBtn.addEventListener('click',DeleteProduct )
+}
+
+function DeleteProduct() {
+  
+  fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/Product/${productId}`, {
+    method: 'DELETE'
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to create product');
+      }
+      return response.json();
+    })
+    .then(responseData => {
+
+      window.location.href = "/My_Store.html"
+    })
+    .catch(error => {
+      console.error('Failed to Delete product:', error);
+    });
+
+
+}
+
+
+// Delete Product functionality End here 
+
+
+</script>
+</html>

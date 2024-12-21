@@ -1,0 +1,17 @@
+/* Selection color shift start  */
+::selection {
+    background-color: #ffefaf; /* Change this color to your desired selection color */
+    color: #000; /* Change this color to your desired text color */
+}
+/* Selection color shift end  */
+
+/* Gate Pass Section Start here  */
+/* 
+footer {
+    position: absolute !important;
+    bottom: 0px !important;
+} */
+
+/* Gate Pass Section End here  */
+
+

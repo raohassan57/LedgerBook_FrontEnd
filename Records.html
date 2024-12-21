@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Records</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+  <link rel="apple-touch-icon" sizes="152x152" href="./Images/ProjectImgs/Favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./Images/ProjectImgs/Favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./Images/ProjectImgs/Favicon/favicon-16x16.png">
+  <link rel="manifest" href="./Images/ProjectImgs/Favicon/site.webmanifest">
+  <link rel="mask-icon" href="./Images/ProjectImgs/Favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+	<link href="./css/tailwind/tailwind@2.2.19.min.css" rel=" stylesheet">
+	<!--Replace with your tailwind.css once created-->
+
+
+	<!--Regular Datatables CSS-->
+	<link href="./css/jquery.dataTables/jquery.dataTables.min.css" rel="stylesheet">
+	<!--Responsive Extension Datatables CSS-->
+	<link href="./css/jquery.dataTables/responsive.dataTables.min.css" rel="stylesheet">
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
+
+	<link href="./css/index.css" rel="stylesheet" >
+
+
+
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-900  text-gray-900 tracking-wider leading-normal">
+
+  <!-- Navigation Menu -->
+  <nav class="flex flex-col md:flex-row justify-between items-center bg-gray-800 text-white p-4 rounded-md mb-8">
+    <!-- Home Icon -->
+	<a class="z-10" href="./index.html">
+    <div class="flex items-center space-x-2 mb-4 md:mb-0">
+      <!-- SVG Icon for Home -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current text-white" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 3.293l6.146 6.147a.5.5 0 0 1-.708.708L10 4.707l-5.439 5.439a.5.5 0 0 1-.708-.708L10 3.293zM2 7.5a.5.5 0 0 1 .5-.5h1.854l5.5 5.5H14.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-5z"/>
+      </svg>
+      <!-- Text for Home -->
+      <span>Home</span>
+    </div>
+	</a>
+    <!-- Pagination for Current Path -->
+    <div class="pagination text-lg font-semibold mb-4 md:mb-0">Records</div>
+    <!-- Buttons for Inventory and Create Ledger -->
+    <div class="flex items-center space-x-4">
+      <a href="./My_Store.html" class="bg-red-700 hover:bg-red-800 text-white px-2 py-1 rounded-md transition duration-300">Inventory</a>
+      <a href="./Ledger.html"
+      class="bg-green-600 hover:bg-green-700 text-white px-2 py-1 rounded-md transition duration-300">Create Ledger</a>
+      <a href="./Order.html" class="bg-indigo-500 hover:bg-indigo-600 text-white px-2 py-1 rounded-md transition duration-300">Create Order</a>
+    </div>
+  </nav>
+
+<!-- Navigation ends here  -->
+
+	<!--Container-->
+	<div class="container w-full    mx-auto px-2">
+
+
+
+		<!--Card-->
+		<div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow indexPageTable ">
+        
+	<!-- Component Start -->
+  <div class="flex justify-between items-center">
+    <h4 class="text-xl text-gray-400 ml-4 font-medium relative">Sales : <span class="absolute ml-2 text-2xl" id="SalesNumber">0</span></h4>
+    <div class="flex flex-row ">
+      <div  class="flex flex-col mr-16 mb-2">
+        <label for="Period" class="text-sm pb-1 font-medium self-start text-gray-300">Payment Period:</label>
+        <select onchange="GetAllSales()" id="Period" class="rounded-md shadow-sm outline-none px-4 py-2 text-white bg-gray-800 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-500 ml-auto">
+          <option value="Today" selected class="hover:bg-gray-700 py-1 text-gray-300">Today</option>
+          <option value="YesterDay" class="hover:bg-gray-700 py-1 text-gray-300">Yesterday</option>
+          <option value="Week" class="hover:bg-gray-700 py-1 text-gray-300">Week</option>
+          <option value="Month" class="hover:bg-gray-700 py-1 text-gray-300">Month</option>
+        </select>
+      </div>
+      <div class="flex flex-col mb-2">
+        <label for="PaymentType" class="text-sm pb-1 font-medium self-start text-gray-300">Payment Type:</label>
+        <select id="PaymentType" class=" rounded-md shadow-sm outline-none px-3 py-2 text-white bg-gray-800 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-500 ml-auto">
+          <option value="all" selected class="hover:bg-gray-700 py-1 text-gray-300">All</option>
+          <option value="cash" class="hover:bg-gray-700 py-1 text-gray-300">Cash</option>
+          <option value="credit" class="hover:bg-gray-700 py-1 text-gray-300">Credit</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+	<div class="flex flex-col mt-6">
+		<div class="my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+			<div class="py-2 align-middle inline-block min-w-full ">
+				<div class="shadow overflow-hidden sm:rounded-lg">
+          <table id="RecordsTable" class="text-left w-full text-sm text-gray-300">
+            <thead class=" flex bg-blue-800  w-full text-xs font-medium">
+              <tr class="flex w-full mb-4 px-6">
+                <th class=" w-1/6 px-1 py-3 text-left tracking-wider">Date</th>
+                <th class=" w-1/6 px-1 py-3 text-left tracking-wider">Phone No</th>
+                <th class=" w-1/3 px-1 py-3 text-left tracking-wider">Name</th>
+                <th class=" w-1/3 px-1 py-3 text-left tracking-wider">Location</th>
+                <th class=" w-1/6 px-2 py-3 text-left tracking-wider">Total Payment</th>
+                <th class=" w-1/6 px-2 py-3 text-left tracking-wider">Upfront Payment</th>
+                <th class=" w-1/5 px-2 py-3 text-left tracking-wider">Remaining Payment</th>
+              </tr>
+            </thead>
+            <tbody class="bg-gray-800 bg-opacity-50 flex flex-col items-center justify-between overflow-y-scroll w-full"
+              style="max-height: 500px;">
+              <!-- Table body content goes here -->
+            </tbody>
+          </table>
+                    <div class="transition duration-300  bg-opacity-50 hover:bg-opacity-80  flex justify-between rounded-md bg-gray-800 p-4">
+                        <div class="flex items-center space-x-4">
+                          <span class="text-gray-400 hover:text-gray-300 text-sm font-medium">Sum of Total Payments:</span>
+                          <span id="sumTotalPayments" class="text- font-bold text-gray-300">0.00</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                          <span class="text-gray-400 hover:text-gray-300 text-sm font-medium">Sum of Total Upfront Payments:</span>
+                          <span id="sumTotalUpfrontPayments" class="text- font-bold text-gray-300">0.00</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                          <span class="text-gray-400 hover:text-gray-300 text-sm font-medium">Sum of Total Remaining Payments:</span>
+                          <span id="sumTotalRemainingPayments" class="text- font-bold text-gray-300">0.00</span>
+                        </div>
+                      </div>
+                
+                
+                    <!-- Total Credit Debit start here -->
+                    <div class=" transition duration-500  bg-opacity-50 hover:bg-opacity-80  flex justify-between mt-12 bg-gray-800 p-8 rounded-lg">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-gray-400 hover:text-gray-300 font-medium">Total Credit:</span>
+                            <span id="totalCredit" class="text-lg font-bold text-green-500">0.00</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-gray-400 hover:text-gray-300 font-medium">Total Debit:</span>
+                            <span id="totalDebit" class="text-lg font-bold text-red-500">0.00</span>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Total Credit Debit End here -->
+				</div>
+			</div>
+		</div>
+
+    
+
+	</div>
+
+	<!-- Component End  -->
+
+
+		</div>
+		<!--/Card-->
+
+
+	</div>
+	<!--/container-->
+
+
+
+
+<!-- Footer Section Start here  -->
+<div class="flex-1">
+  
+</div>
+
+<footer class="mt-2 md:mt-6 bg-gray-800 p-4 pt-5 pb-2 sticky bottom-0">
+  <div class="container mx-auto md:px-16">
+    <div class="flex flex-wrap sm:flex-row justify-between items-center">
+      <div class="footer-left text-gray-300 text-center sm:text-left w-full md:w-1/3"> <span
+          class="text-gray-500 md:text-gray-300">Developed by: |</span>
+        <span class="text-sm md:text-base hover:text-gray-100 hover:text-sm hover:font-semibold text-right">Hassan Tariq
+          &
+          Team</span>
+      </div>
+      <div class="footer-right text-gray-300 text-center sm:text-right w-full md:w-1/3"> <span
+          class="text-gray-500 md:text-gray-300">Email Us: | </span>
+        <a class="hover:text-gray-100 hover:text-sm hover:font-semibold" href="mailto:raohassan57@gmail.com"
+          target="_blank">
+          <span class="text-right">raohassan57@gmail.com</span>
+        </a>
+      </div>
+    </div>
+    <div class="text-center text-gray-400 text-xs mt-1 md:mt-0">All Rights Reserved</div>
+  </div>
+</footer>
+
+<!-- Footer Section End here  -->
+
+
+
+
+
+  <script>
+  //   var tData = [{
+  //     phone: 3055464885,
+  //     name : "Shakiel Electronics",
+  //     Location : "Arifwala",
+  //     PromisedPaymentDate : "2024-03-19T00:00:00.000+00:00",
+  //     Total_Payment: "6000",
+  //     Remaining_Payment: "1200",
+  //     LedgerId : "6601b1cc3a4490ea17b7c1e1"
+  //   }
+  // ]
+    var tData = [ ]
+
+
+// Get All Sales Start here 
+const Period = document.getElementById('Period')
+
+
+GetAllSales()
+function GetAllSales() {
+
+const periodValue = Period.value
+  
+fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/Records/getAll/${periodValue}`)
+  .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+  })
+  .then(data => {
+     // Assuming the response data contains createrName, createrLocation, and createrPhone
+      tData = data.ordersWithCreaterInfo
+      console.log(data);
+      document.getElementById("SalesNumber").innerText = data.ordersWithCreaterInfo.length || 0
+      render(tData)
+
+      // Get the select element by its id
+      const paymentTypeSelect = document.getElementById('PaymentType');
+
+      // Set the value of the select element to "all"
+      paymentTypeSelect.value = "all";
+
+
+
+  })
+  .catch(error => {
+      console.log('Phone NO Not Found:', error);
+
+      tData = []
+      document.getElementById("SalesNumber").innerText = tData.length || 0
+      render(tData)
+
+      // Get the select element by its id
+      const paymentTypeSelect = document.getElementById('PaymentType');
+
+      // Set the value of the select element to "all"
+      paymentTypeSelect.value = "all";
+    
+  });
+
+}
+
+const PaymentType = document.getElementById('PaymentType');
+PaymentType.addEventListener('change', HandlePaymentType)
+
+function HandlePaymentType(params) {
+  console.log(PaymentType.value);
+  console.log(tData);
+  if (PaymentType.value == 'credit') {
+    const filterArray = tData.filter(item => item.billSection.remainingPayment != '0');
+    render(filterArray)
+  } else if(PaymentType.value == 'cash') {
+    const filterArray = tData.filter(item => item.billSection.remainingPayment == '0');
+    render(filterArray)
+  } else if(PaymentType.value == 'all') {
+    render(tData)
+  }
+  
+}
+
+
+
+
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// Get All Creater from backend End here 
+// Get TotalCredit TotalDebit start here
+
+fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Records/DebitCredit')
+  .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+  })
+  .then(data => {
+     // Assuming the response data contains createrName, createrLocation, and createrPhone
+    // console.log(data);
+// Now Total Credit Debit 
+document.getElementById('totalCredit').textContent = numberWithCommas(data.TotalCredit)
+document.getElementById('totalDebit').textContent = numberWithCommas(Math.abs(data.TotalDebit))
+
+
+  })
+  .catch(error => {
+      console.log('Phone NO Not Found:', error);
+  });
+// Get TotalCredit TotalDebit End here
+function convertUTCtoUTCPlus5(utcDate) {
+  // Create a new Date object for the given UTC date
+  const utcTime = new Date(utcDate).getTime();
+
+  // Calculate the UTC+5 time by adding the offset
+  const utcPlus5Time = utcTime + (5 * 60 * 60 * 1000); // 5 hours * 60 minutes * 60 seconds * 1000 milliseconds
+
+  // Create a new Date object for UTC+5 time
+  const utcPlus5Date = new Date(utcPlus5Time);
+
+  // Return the converted date
+  return utcPlus5Date;
+}
+
+// Render Functionality start here 
+function render(dataArray) {
+
+  document.getElementById("SalesNumber").innerText = dataArray.length || 0
+
+  var tbodyelem = document.getElementsByTagName('tbody')[0]
+var TotalRow = ''
+dataArray.forEach(item => {
+
+  const date = item?.createdAt ? convertUTCtoUTCPlus5(item.createdAt).toISOString().split('T')[0] : 'no Date' 
+var tr = `					
+
+            <tr onclick="redirectToLedger('${item?.OrderId}')" class="flex w-full bg-black text-gray-300 duration-300 hover:bg-gray-700 hover:text-gray-300  bg-opacity-20">
+								<td class="px-1 py-3 w-1/6">
+									<span class="ml-2 font-medium">${date}</span>
+								</td>
+								<td class="px-1 py-3 w-1/6">
+									<span class="ml-2 font-medium">0${item?.phone}</span>
+								</td>
+								<td class="p-4 w-1/3">
+									${item?.name}
+								</td>
+								<td class="p-4 w-1/3">
+									${item?.Location}
+								</td>
+								<td class="p-4 w-1/4 pl-8">
+									${item?.billSection?.totalAmount}
+								</td>
+								<td class="p-4 w-1/12">
+									${item?.billSection?.upfrontPayment}
+								</td>
+								<td class="p-4 ">
+									${item?.billSection?.remainingPayment}
+								</td>
+							</tr>
+							
+      `
+  
+    TotalRow += tr
+});
+
+tbodyelem.innerHTML = TotalRow
+
+var SumofTotalPayments =0
+var SumofUpfrontPayments =0
+var SumofRemainingPayments =0 
+
+dataArray.forEach(element => {
+    SumofTotalPayments += parseInt( element.billSection.totalAmount )
+    SumofUpfrontPayments += parseInt( element.billSection.upfrontPayment )
+    SumofRemainingPayments += parseInt( element.billSection.remainingPayment )
+});
+
+
+document.getElementById('sumTotalPayments').textContent = numberWithCommas(SumofTotalPayments)
+document.getElementById('sumTotalUpfrontPayments').textContent = numberWithCommas(SumofUpfrontPayments)
+document.getElementById('sumTotalRemainingPayments').textContent = numberWithCommas(SumofRemainingPayments)
+
+
+
+}
+
+
+
+
+
+// Redirect to home page start here 
+
+function redirectToLedger(OrderID) {
+    // Construct the URL with the provided CreaterId
+    const url = `/Order.html?OrderID=${OrderID}`;
+
+    // Redirect the user to the constructed URL
+    window.location.href = url;
+}
+
+
+// Redirect to home page End here 
+
+
+
+    // JavaScript to trigger the reveal animation after 1 second (1000 milliseconds)
+    setTimeout(function() {
+        document.getElementById('recipients').classList.add('reveal');
+    }, 800);
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

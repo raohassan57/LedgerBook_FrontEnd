@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GatePass </title>
+    <link rel="apple-touch-icon" sizes="152x152" href="./Images/ProjectImgs/Favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./Images/ProjectImgs/Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./Images/ProjectImgs/Favicon/favicon-16x16.png">
+    <link rel="manifest" href="./Images/ProjectImgs/Favicon/site.webmanifest">
+    <link rel="mask-icon" href="./Images/ProjectImgs/Favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link href="./css/tailwind/tailwind@2.2.19.min.css" rel=" stylesheet">
+
+
+    <style>
+        /* CSS styles for bill receipt layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .receipt h1 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .receipt p {
+            margin: 5px 0;
+        }
+        .receipt ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .receipt ul li {
+            margin-bottom: 5px;
+        }
+        .receipt button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        tr, td, th {
+                page-break-inside: avoid;
+        }
+
+        @media print {
+            @page {
+                size: 79mm 350mm; /* Set the size of the printed page */
+                margin: 0px; /* Remove default margins */
+                margin-right: 0mm;
+            }
+
+            body {
+                width: 79mm; /* Set the width of the body content */
+                margin-right: 0px; /* Remove any margins */
+                padding: 5px !important; /* Remove any padding */
+            }
+
+
+            /* Positioning the timestamp at the top right corner */
+            .timestamp {
+                position: fixed;
+                top: 0mm;
+                right: 0mm;
+                font-size: 10px;
+                /* font-weight: bold; */
+            }
+            .GatePassNO{
+                font-size: 10px;
+            }
+            footer {
+            visibility: visible;
+            }
+
+            .receipt{
+                position: absolute;
+                margin-left: 0px;
+                padding-left: 0px;
+            }
+
+            .createrInfo{
+                max-width: 79mm;
+                padding: 10px;
+                padding-bottom: 0px;
+                margin: 5px 0px;
+                margin-bottom: 10px;
+                width: 100%;
+            }
+            .createrInfo * {
+                font-size: 10px;                
+                color: black;
+            }
+
+            .createrInfo div.flex {
+                flex-direction: column;
+            }
+
+
+            .createrInfo div.flex > div {
+                width: 100% !important;
+                padding: 5px 14px !important;
+                margin-left: 0px !important;
+                margin: -2px 0px !important;
+            }
+
+            .createrInfo div.flex > div input {
+                display: inline !important;
+                margin-top: 0px !important;
+            }
+
+            .heading{
+                font-size: 12px;
+                width: 95%;
+                padding: 20px 0px;
+                padding-bottom: 0px;
+            }
+
+            p {
+                font-size: 10px;
+            }
+
+            tr,td,th {
+                padding: 2px !important;
+            }
+
+            tr, td{
+                font-size:10px !important;
+                font-weight: bold;
+            }
+
+            th{
+                font-size: 11px !important;
+            }
+
+            table {
+                width: 95%;
+            }
+
+            footer * {
+                color: black !important;
+            }
+
+            .Print-btn{
+                visibility: hidden;
+            }
+
+        }
+    </style>
+</head>
+<body class="bg-white p-10">
+    <div class="receipt">
+                <!-- Timestamp element -->
+                <div id="timestamp" class="timestamp"></div>
+                <div  class="GatePassNO">Gp No <span class="font-bold"></span></div>
+
+
+
+                <h2 class="heading  font-bold text-center">Pak Madina Electronics & Solar Burewala </h2>
+
+<!-- Creater Info section start here  -->
+<div spellcheck="false" class="createrInfo container w-11/12 mx-auto bg-white p-6 mb-8 mt-2 rounded-md shadow-md">
+
+    <div class="flex space-x-4">
+		<div class="w-1/2   rounded-lg">
+			<label for="name" class="block text-sm font-bold  text-gray-700">Name</label>
+			<input type="text" id="createrName" name="name" class="mt-1  focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md resize-none" placeholder="Customer's Shope Name">
+		</div>
+		<div class="w-full  ">
+			<label for="location" class="block text-sm font-bold  text-gray-700">Location</label>
+			<input type="text" id="createrLocation" name="location" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Shope Location">
+		</div>
+    </div>
+</div>
+
+
+
+<!-- Creater Info section Ends here  -->
+
+<table class="min-w-full border border-gray-500 mb-8">
+    <thead class="bg-gray-100 border-b border-gray-500">
+        <tr>
+            <th class="px-6 py-3 border border-gray-500 text-left text-sm font-bold text-black camlecase tracking-wider">Sr.No</th>
+            <th class="px-6 py-3 border border-gray-500 text-left text-sm font-bold text-black camlecase tracking-wider">Item Name</th>
+            <th class="px-6 py-3 border border-gray-500 text-left text-sm font-bold text-black camlecase tracking-wider">Quantity</th>
+        </tr>
+    </thead>
+    <tbody class="bg-white">
+    </tbody>
+</table>
+    <!-- Footer section -->
+    <footer class=" text-center text-sm py-4 flex justify-center items-center space-x-2 shadow-t w-full">
+        <p>Developed by Hassan Tariq & Team</p>
+        <span>|</span>
+        <p>Email us: <a href="mailto:raohassan57@gmail.com" class="text-blue-500 hover:underline">raohassan57@gmail.com</a></p>
+    </footer>
+
+
+
+        <button class="Print-btn" onclick="PrintthePage()">Print Receipt</button>
+
+        
+    </div>
+
+</body>
+
+
+<script>
+
+// Get Order Details Functionality Start here
+const urlParams = new URLSearchParams(window.location.search);
+const OrderID = urlParams.get('OrderID');
+
+if (OrderID) {
+    fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/GatepassMenu/GetGatepassById/${OrderID}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+    console.log(data);
+
+    if (data.exists == true) {
+        console.log(document.querySelector('button.Print-btn'));
+        document.querySelector('button.Print-btn').style.display = 'none'
+        alert(data.Action)
+    }else{
+      document.getElementById('createrName').value = data.creater.name;
+      document.getElementById('createrLocation').value = data.creater.officeLocation;
+      document.querySelector('.createrInfo').setAttribute('data-updated-at', data.order.updatedAt)
+      document.querySelector('.GatePassNO span').innerHTML = data.GatePassNO
+      // setttin previousPaymentTotal values 
+
+      RenderOrder(data.order)
+
+    }
+
+
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+  }
+
+// Get Order Details Functionality End here
+
+// Render the Functionality Start here
+function RenderOrder(order){
+const { productList, billSection } = order
+
+let tableHTML = ''; // Initialize an empty string to store the HTML for the table rows
+
+
+productList.map((elem, i) => {
+    const image = elem.imageUrl ? "/Images/ProductImg/" + elem.imageUrl : "https://via.placeholder.com/50";
+
+    // Append HTML for each product to the tableHTML string
+    tableHTML += `
+        <tr data-productid="${elem.productId}">
+            <td class="px-6 py-2 border border-gray-500 text-sm text-black">${i + 1}</td>
+            <td class="px-6 py-2 border border-gray-500 text-sm text-black">${elem?.productName}</td>
+            <td class="px-6 py-2 border border-gray-500 text-sm text-black">${elem?.quantity}</td>
+
+        </tr>
+    `;
+});
+
+// Set the innerHTML of OrderTableBody to the generated tableHTML
+
+document.querySelector('tbody').innerHTML = tableHTML;
+
+
+
+}
+
+
+// Render the Functionality End here
+
+// Printing Button For Print Functionality Start here
+function PrintthePage() {
+
+const now = new Date();
+const utcDateString = now.toISOString();
+        const formattedDateTime = now.toLocaleString(); // You can customize the format as needed
+        document.getElementById('timestamp').textContent = formattedDateTime;
+        
+
+
+    fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/Order/PrintGatePass/`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        PrintTime: utcDateString,
+        OrderID
+    }),
+} )
+    .then(response => response.json())
+.then(data => console.log(data))
+.catch((error) => console.error('Error:', error));
+
+
+        window.print()
+
+}
+
+
+// Printing Button For Print Functionality End here
+
+
+
+
+</script>
+</html>

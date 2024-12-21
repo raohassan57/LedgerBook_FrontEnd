@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GatePass Menu</title>
+    <link rel="apple-touch-icon" sizes="152x152" href="./Images/ProjectImgs/Favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./Images/ProjectImgs/Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./Images/ProjectImgs/Favicon/favicon-16x16.png">
+    <link rel="manifest" href="./Images/ProjectImgs/Favicon/site.webmanifest">
+    <link rel="mask-icon" href="./Images/ProjectImgs/Favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+	<link href="./css/tailwind/tailwind@2.2.19.min.css" rel=" stylesheet">
+	<!--Replace with your tailwind.css once created-->
+    <link rel="stylesheet" href="./css/GatePassMenu.css">
+</head>
+<body class="">
+
+    <div class=" flex">
+
+      <div class="sideMenubar ">
+          <div id="nav-bar">
+              <input id="nav-toggle" type="checkbox" />
+              <div id="nav-header">
+                  <a class="flex between" id="nav-title">
+                      <svg fill="#f3f4f6" class="pt-1" height="24px" width="24px" version="1.2" baseProfile="tiny" id="inventory"
+                          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 230"
+                          xml:space="preserve">
+                          <path d="M61.2,106h37.4v31.2H61.2V106z M61.2,178.7h37.4v-31.2H61.2V178.7z M61.2,220.1h37.4v-31.2H61.2V220.1z M109.7,178.7H147
+                              v-31.2h-37.4V178.7z M109.7,220.1H147v-31.2h-37.4V220.1z M158.2,188.9v31.2h37.4v-31.2H158.2z M255,67.2L128.3,7.6L1.7,67.4
+                              l7.9,16.5l16.1-7.7v144h18.2V75.6h169v144.8h18.2v-144l16.1,7.5L255,67.2z" />
+                      </svg>
+                      <span class="text-xl ml-2 pb-1 ">
+                          GatePass Menu
+              
+                      </span>
+                  </a>
+                  <label for="nav-toggle"><span id="nav-toggle-burger"></span></label>
+                  <hr />
+              </div>
+              <div id="nav-content">
+
+                  <div class="nav-button">
+                      <svg class="fas" width="24px" height="24px" viewBox="0 0 24 24" fill="#8392a5"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                              d="M8 6L21 6.00078M8 12L21 12.0008M8 18L21 18.0007M3 6.5H4V5.5H3V6.5ZM3 12.5H4V11.5H3V12.5ZM3 18.5H4V17.5H3V18.5Z"
+                              stroke="#8392a5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      <span>GatePass List</span>
+                  </div>
+                  <hr />
+                  <div class="invisible nav-button userMangment">
+                      <svg class="fas" fill="#8392a5" width="24px" height="24px" viewBox="0 0 48 48"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <g id="Layer_2" data-name="Layer 2">
+                              <g id="invisible_box" data-name="invisible box">
+                                  <rect width="48" height="48" fill="none" />
+                              </g>
+                              <g id="Icons">
+                                  <g>
+                                      <path
+                                          d="M6,37V33.4A21.7,21.7,0,0,1,16,31a20.6,20.6,0,0,1,7,1.2,13.7,13.7,0,0,1,.9-4A26.1,26.1,0,0,0,16,27,25.6,25.6,0,0,0,3,30.5l-1,.6V39a2,2,0,0,0,2,2H25.8a12,12,0,0,1-2.2-4Z" />
+                                      <path
+                                          d="M16,23a9,9,0,1,0-9-9A9,9,0,0,0,16,23ZM16,9a5,5,0,1,1-5,5A5,5,0,0,1,16,9Z" />
+                                      <path
+                                          d="M46,34.1V31.9L42.4,31l-.5-1.1,2-3.2-1.6-1.6-3.2,2L38,26.6,37.1,23H34.9L34,26.6l-1.1.5-3.2-2-1.6,1.6,2,3.2L29.6,31l-3.6.9v2.2l3.6.9.5,1.1-2,3.2,1.6,1.6,3.2-2,1.1.5.9,3.6h2.2l.9-3.6,1.1-.5,3.2,2,1.6-1.6-2-3.2.5-1.1ZM36,36a3,3,0,1,1,3-3A2.9,2.9,0,0,1,36,36Z" />
+                                  </g>
+                              </g>
+                          </g>
+                      </svg>
+                      <span>User Mangment</span>
+                  </div>
+
+
+                  <div id="nav-content-highlight"></div>
+              </div>
+              <hr class="mb-4" />
+                <div class="flex justify-center w-full" id="nav-footer-heading">
+                    <!-- Home Icon -->
+                    <a class="z-10 " href="./index.html">
+                        <div class="flex items-center space-x-2 mb-4 md:mb-0 rounded-lg p-2 px-6 transition duration-300">
+                            <!-- SVG Icon for Home -->
+                            <svg  xmlns="http://www.w3.org/2000/svg" class=" h-6 w-6 fill-current fill-gray-700 " viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 3.293l6.146 6.147a.5.5 0 0 1-.708.708L10 4.707l-5.439 5.439a.5.5 0 0 1-.708-.708L10 3.293zM2 7.5a.5.5 0 0 1 .5-.5h1.854l5.5 5.5H14.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-5z" />
+                            </svg>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+
+      </div>
+  <div class="sectionContainer container mx-auto">
+    <div class="text-md  min-h-screen sections">
+      <div class="GatepssList-container mr-8 ml-4 flex justify-center py-4 w-full h-full ">
+        
+        <div class="flex flex-col">
+
+                <div class="shadow-md rounded-t-lg  bg-white p-4 flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
+ 
+
+                    <div  class="z-10 flex flex-col mr-16 mb-2">
+                        <select onchange="" id="Period" class="rounded-md shadow-sm outline-none px-4 py-2 text-gray-900 bg-gray-100 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-indigo-500 ml-auto">
+                          <option value="Today" selected class="text-gray-500 bg-gray-100">Today</option>
+                          <option value="YesterDay" class="text-gray-500 bg-gray-100>">Yesterday</option>
+                          <option value="Week" class="text-gray-500 bg-gray-100">Week</option>
+                          <option value="Month" class="text-gray-500 bg-gray-100">Month</option>
+                        </select>
+                      </div>
+
+
+                    <div class="relative flex items-center">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <input type="text" id="table-search" class="focus:outline-none pl-10 p-2 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 hover:ring-blue-500 hover:border-blue-500 " placeholder="Search for GatePass">
+                    </div>
+                </div>
+
+            <div class="tableContainer overflow-y-auto rounded-b-lg  shadow-md ">
+
+                <table class=" w-full block text-sm text-left  text-gray-500">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <tr>
+                            <th scope="col" class="p-4">
+                                No
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Shope Name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Location
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Printing Time
+                            </th>
+                            <th scope="col" class="p-4">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+
+            
+      </div>
+    </div>
+  </div>
+    </div>
+
+</body>
+<script src="./js/GatePass_Menu.js"></script>
+</html>
