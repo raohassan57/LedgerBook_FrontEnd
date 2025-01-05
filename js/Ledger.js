@@ -29,7 +29,7 @@
 // ]
 
 var ledgerData = [];
-
+let server = 'https://platformshdeploy-zitavcq-6cxmlqongi3dc.au-2.platformsh.site/'
 
 
 var tbodyelem = document.getElementById('khataBody')
@@ -66,7 +66,7 @@ window.onload = function() {
   if (LedgerId) {
     
      // Construct the API URL
-  const apiUrl = `https://ledgerbook3-n17dzrms.b4a.run/api/Ledger/GetLedger/${LedgerId}`;
+  const apiUrl = `${server}api/Ledger/GetLedger/${LedgerId}`;
 
   // Use Fetch API to make the GET request
   fetch(apiUrl)
@@ -104,7 +104,7 @@ window.onload = function() {
   if (CreaterId) {
     
   // Construct the API URL
-  const apiUrl = `https://ledgerbook3-n17dzrms.b4a.run/api/Ledger/GetCreaterById/${CreaterId}`;
+  const apiUrl = `${server}api/Ledger/GetCreaterById/${CreaterId}`;
  
   // Use Fetch API to make the GET request
   fetch(apiUrl)
@@ -153,7 +153,7 @@ var NoteValue = '<td class="note px-4 py-3  border editable" contenteditable="tr
 		if(item?.Note?.ImageName){
 			var ImageName = item.Note.ImageName
 			NoteValue = `<td class="note px-4 py-3  border editable" >
-				<a target="_blank" class="bg-pink-300 hover:bg-pink-600 text-white px-2 py-1 rounded-md transition duration-300" href="https://ledgerbook3-n17dzrms.b4a.run/Images/AttachImages/${ImageName}">Open Image</a>
+				<a target="_blank" class="bg-pink-300 hover:bg-pink-600 text-white px-2 py-1 rounded-md transition duration-300" href="${server}web/uploads/Images/AttachImages/${ImageName}">Open Image</a>
 				<button class="bg-red-300 hover:bg-red-600 text-white px-2 py-1 rounded-md transition duration-300" onclick="removeImage(event,'${ImageName}')" >Delete</button>
 				</td>`
 
@@ -412,7 +412,7 @@ function handleDelete() {
 console.log('Delete Call here');
 
 
-fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/Ledger/${LedgerId}`, {
+fetch(`${server}api/Ledger/${LedgerId}`, {
   method: 'DELETE'
 })
 .then(response => {
@@ -472,7 +472,7 @@ console.log('modify Call here ');
       }
       
 
-      fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Ledger/CreateLedgerByCreaterNo', {
+      fetch(`${server}api/Ledger/CreateLedgerByCreaterNo`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -509,7 +509,7 @@ console.log('modify Call here ');
       }
       
 
-      fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Ledger/', {
+      fetch(`${server}api/Ledger/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -568,7 +568,7 @@ function removeImage(event, imageName) {
 
 
   // Call the DELETE request to delete the image
-  fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/Ledger/attachmentImg/delete/${imageName}`, {
+  fetch(`${server}api/Ledger/attachmentImg/delete/${imageName}`, {
     method: 'DELETE'
   })
   .then(response => {
@@ -785,7 +785,7 @@ function searchCreaterByPhone() {
   };
 
   // Make a POST request using the Fetch API
-  fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Ledger/CreaterSearchByPhone', {
+  fetch(`${server}api/Ledger/CreaterSearchByPhone`, {
      method: 'POST',
      headers: {
        'Content-Type': 'application/json',
@@ -842,7 +842,7 @@ function handleImageUpload(event) {
   // formData.append('LedgerId', LedgerId); // Append the file to FormData object with key 'image'
   
   // Make a POST request to the /api/ledger/attachmentImg endpoint
-  fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Ledger/attachmentImg', {
+  fetch(`${server}api/Ledger/attachmentImg`, {
     method: 'POST',
     body: formData // Set the FormData as the request body
   })
@@ -902,7 +902,7 @@ function ModifyedSaver(){
   }
   
   
-  fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Ledger/UpdateLedger', {
+  fetch(`${server}api/Ledger/UpdateLedger`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

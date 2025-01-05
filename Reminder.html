@@ -158,13 +158,14 @@
 
 
 <script>
+	let server = 'https://platformshdeploy-zitavcq-6cxmlqongi3dc.au-2.platformsh.site/'
 	var tData = [
 	]
 
 
 // Get All Creater from backend Start here 
 
-fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Reminder/')
+fetch(`${server}api/Reminder/`)
   .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');

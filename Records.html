@@ -208,6 +208,7 @@
   //     LedgerId : "6601b1cc3a4490ea17b7c1e1"
   //   }
   // ]
+  let server = 'https://platformshdeploy-zitavcq-6cxmlqongi3dc.au-2.platformsh.site/'
     var tData = [ ]
 
 
@@ -220,7 +221,7 @@ function GetAllSales() {
 
 const periodValue = Period.value
   
-fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/Records/getAll/${periodValue}`)
+fetch(`${server}api/Records/getAll/${periodValue}`)
   .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -289,7 +290,7 @@ function numberWithCommas(x) {
 // Get All Creater from backend End here 
 // Get TotalCredit TotalDebit start here
 
-fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Records/DebitCredit')
+fetch(`${server}api/Records/DebitCredit`)
   .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');

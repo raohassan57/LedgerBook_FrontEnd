@@ -8,7 +8,7 @@
 //   const parentDiv = document.querySelectorAll('div.EmailPw')[0].parentElement;
 //   let HtmlToAppend = ""
 //   try {
-//       const response = await fetch('https://ledgerbook3-n17dzrms.b4a.run/api/GatepassMenu/getAllStoreKeepers');
+//       const response = await fetch('${server}api/GatepassMenu/getAllStoreKeepers');
 //       const storeKeepers = await response.json();
 
 //       if (response.ok && storeKeepers.length > 0) {
@@ -216,7 +216,7 @@
 // if (UserList.length > 0) {
   
 //   try {
-//     const response = await fetch('https://ledgerbook3-n17dzrms.b4a.run/api/GatepassMenu/UserChangesSave', {
+//     const response = await fetch('${server}api/GatepassMenu/UserChangesSave', {
 //         method: 'POST',
 //         headers: {
 //             'Content-Type': 'application/json'
@@ -281,13 +281,15 @@
 // Time Selection Box functionality End here
 // Get All GatePass functionality Start here 
 
+let server = 'https://platformshdeploy-zitavcq-6cxmlqongi3dc.au-2.platformsh.site/'
+
 document.addEventListener('DOMContentLoaded', () => {
     const periodSelect = document.getElementById('Period');
     const tableSearch = document.getElementById('table-search');
 
     const fetchGatePasses = async (days, query) => {
         try {
-            const response = await fetch('https://ledgerbook3-n17dzrms.b4a.run/api/GatepassMenu/GetAllGatePassStatus', {
+            const response = await fetch(`${server}api/GatepassMenu/GetAllGatePassStatus`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -305,7 +305,7 @@ window.addEventListener('load', checkDisplayCountAndHide);
 
 
 
-
+    let server = 'https://platformshdeploy-zitavcq-6cxmlqongi3dc.au-2.platformsh.site/'
     var tData = []
 
     var days = {
@@ -325,7 +325,7 @@ window.addEventListener('load', checkDisplayCountAndHide);
 const xhr = new XMLHttpRequest();
 
 // Open a GET request to the specified URL in synchronous mode
-xhr.open('GET', 'https://ledgerbook3-n17dzrms.b4a.run/api/home', false); // The third parameter 'false' indicates synchronous mode
+xhr.open('GET', `${server}api/home`, false); // The third parameter 'false' indicates synchronous mode
 
 try {
   // Send the request
@@ -473,7 +473,7 @@ backupButton.addEventListener('click', async () => {
   modal.classList.remove('hidden'); // Show modal
 
   try {
-    const response = await fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Home/backup');
+    const response = await fetch(`${server}api/Home/backup`);
     if (!response.ok) {
       throw new Error(`Error: ${response.statusText}`);
     }

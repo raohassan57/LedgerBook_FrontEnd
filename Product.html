@@ -140,7 +140,7 @@
 <script>
 
 // JavaScript Start Here
-
+let server = 'https://platformshdeploy-zitavcq-6cxmlqongi3dc.au-2.platformsh.site/'
 var productName = document.getElementById('ProductName');
 var stock = document.getElementById('stock')
 var price = document.getElementById('price')
@@ -207,7 +207,7 @@ function CreateNewProduct() {
   formData.append('image', imageFile);
 
 
-  fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Product/NewProduct', {
+  fetch(`${server}api/Product/NewProduct`, {
     method: 'POST',
     body: formData
   })
@@ -236,7 +236,7 @@ function CreateNewProduct() {
 // Get Product funcitonality start here 
 if (productId !== '' && productId !== null && productId !== undefined) {
   // Make GET request to fetch product data
-  fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/Product/${productId}`)
+  fetch(`${server}api/Product/${productId}`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to fetch product data');
@@ -248,7 +248,7 @@ if (productId !== '' && productId !== null && productId !== undefined) {
       productName.value = productData.product.productName;
       stock.value = productData.product.stock;
       price.value = productData.product.price;
-      document.getElementById('MainImage').src = "/Images/ProductImg/"+ productData.product.imageUrl;
+      document.getElementById('MainImage').src = "/web/uploads/Images/ProductImg/"+ productData.product.imageUrl;
 
     })
     .catch(error => {
@@ -299,7 +299,7 @@ if (!imageFile) {
 }
 
 
-  fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Product/ModifyProduct', {
+  fetch(`${server}api/Product/ModifyProduct`, {
     method: 'POST',
     body: formData
   })
@@ -334,7 +334,7 @@ if (productId) {
 
 function DeleteProduct() {
   
-  fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/Product/${productId}`, {
+  fetch(`${server}api/Product/${productId}`, {
     method: 'DELETE'
   })
     .then(response => {

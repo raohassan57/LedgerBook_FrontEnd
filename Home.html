@@ -176,6 +176,7 @@
 
 
   <script>
+    let server = 'https://platformshdeploy-zitavcq-6cxmlqongi3dc.au-2.platformsh.site/'
 // Gettting Cereater Id start here 
 function getCreaterIdFromUrl() {
     // Get the URL parameters
@@ -229,7 +230,7 @@ let createrID = document.getElementById("createrID");
             };
 
             // Make a POST request to the server
-            fetch('https://ledgerbook3-n17dzrms.b4a.run/api/home/UpdateCreater', {
+            fetch(`${server}api/home/UpdateCreater`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -336,7 +337,7 @@ createrPhone.addEventListener("input", InputChecker);
 const xhr = new XMLHttpRequest();
 
 // Open a GET request to the specified URL in synchronous mode
-xhr.open('GET', `https://ledgerbook3-n17dzrms.b4a.run/api/home/${createrId}`, false); // The third parameter 'false' indicates synchronous mode
+xhr.open('GET', `${server}api/home/${createrId}`, false); // The third parameter 'false' indicates synchronous mode
 
 try {
   // Send the request

@@ -1,3 +1,4 @@
+let server = 'https://platformshdeploy-zitavcq-6cxmlqongi3dc.au-2.platformsh.site/'
 let OrderTableBody = document.getElementById('OrderTableBody')
 const searchInput = document.getElementById('searchInput')
 
@@ -21,7 +22,7 @@ TotalProductList =[];
 
 // Getting All the Prodduct functionality start here 
 (() => {
-  fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Order/getAllProducts')
+  fetch(`${server}api/Order/getAllProducts`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -51,7 +52,7 @@ TotalProductList =[];
   }else {
     document.getElementById('deleteModalButton').classList.remove('invisible')
 
-    fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/Order/GetOrderById/${OrderID}`)
+    fetch(`${server}api/Order/GetOrderById/${OrderID}`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -88,7 +89,7 @@ let tableHTML = ''; // Initialize an empty string to store the HTML for the tabl
 
 
 productList.map((elem, i) => {
-    const image = elem.imageUrl ? "https://ledgerbook3-n17dzrms.b4a.run/Images/ProductImg/" + elem.imageUrl : "https://via.placeholder.com/50";
+    const image = elem.imageUrl ? `${server}web/uploads/Images/ProductImg/` + elem.imageUrl : "https://via.placeholder.com/50";
 
     // Append HTML for each product to the tableHTML string
     tableHTML += `
@@ -443,7 +444,7 @@ function handleDelete() {
     return ""
   }else {
 
-    fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/Order/DeleteOrder/${OrderID}`)
+    fetch(`${server}api/Order/DeleteOrder/${OrderID}`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -511,7 +512,7 @@ console.log('modify Call here ');
     }
     
 
-    fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Order/CreateOrderByCreaterNo', {
+    fetch(`${server}api/Order/CreateOrderByCreaterNo`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -547,7 +548,7 @@ console.log('modify Call here ');
     }
     
 
-    fetch('https://ledgerbook3-n17dzrms.b4a.run/api/Order/CreateOrderAndCreater', {
+    fetch(`${server}api/Order/CreateOrderAndCreater`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -719,7 +720,7 @@ window.onload = function() {
   }
 
   // Construct the API URL
-  const apiUrl = `https://ledgerbook3-n17dzrms.b4a.run/api/Order/GetCreaterById/${CreaterId}`;
+  const apiUrl = `${server}api/Order/GetCreaterById/${CreaterId}`;
 
   // Use Fetch API to make the GET request
   fetch(apiUrl)
@@ -760,7 +761,7 @@ function ModifyedSaver(data){
       const updatedAt = document.querySelector('.createrInfo').dataset.updatedAt;
       console.log(updatedAt);
 
-fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/Order/UpdateOrder/${OrderID}`, {
+fetch(`${server}api/Order/UpdateOrder/${OrderID}`, {
 method: 'PUT',
 headers: {
   'Content-Type': 'application/json',

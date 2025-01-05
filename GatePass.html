@@ -258,6 +258,7 @@
 
 // url for gatepass qr code 
 // "http://127.0.0.1:5500/public/GatePass.html?SK=t&GatePassID=ggssgklsg"
+let server = 'https://platformshdeploy-zitavcq-6cxmlqongi3dc.au-2.platformsh.site/'
 
 const urlParams = new URLSearchParams(window.location.search);
     
@@ -296,7 +297,7 @@ const urlParams = new URLSearchParams(window.location.search);
   //       return;
   //     }
 
-  //     url = 'https://ledgerbook3-n17dzrms.b4a.run/api/public/Gatepass/SaveGatePassPublic';
+  //     url = '${server}api/public/Gatepass/SaveGatePassPublic';
   //     data = {
   //       token: token,
   //       gatePassId: gatePassId,
@@ -308,7 +309,7 @@ const urlParams = new URLSearchParams(window.location.search);
   //       return;
   //     }
 
-  //     url = 'https://ledgerbook3-n17dzrms.b4a.run/api/GatepassMenu/SaveGatePass';
+  //     url = '${server}api/GatepassMenu/SaveGatePass';
   //     data = {
   //       gatePassId: gatePassId,
   //       CheckBoxStatus: deliveredCheckbox.checked
@@ -400,7 +401,7 @@ const responseMessage = document.getElementById('responseMessage');
     }
 
     try {
-        const response = await fetch('https://ledgerbook3-n17dzrms.b4a.run/api/public/Gatepass/UserLogin', {
+        const response = await fetch(`${server}api/public/Gatepass/UserLogin`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -456,7 +457,7 @@ const responseMessage = document.getElementById('responseMessage');
 
         try {
 
-          const response = await fetch('https://ledgerbook3-n17dzrms.b4a.run/api/public/Gatepass/GetGatePass', {
+          const response = await fetch(`${server}api/public/Gatepass/GetGatePass`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -491,7 +492,7 @@ const responseMessage = document.getElementById('responseMessage');
         // if it is not StoreKeeper 
         try {
 
-        const response = await fetch('https://ledgerbook3-n17dzrms.b4a.run/api/GatepassMenu/GetGatePass', {
+        const response = await fetch(`${server}api/GatepassMenu/GetGatePass`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -616,7 +617,7 @@ async function DeleteWithID() {
   
   // Function to delete a gate pass by ID
   try {
-    const response = await fetch(`https://ledgerbook3-n17dzrms.b4a.run/api/GatepassMenu/DeleteGatePassWithID/${gatePassId}`, {
+    const response = await fetch(`${server}api/GatepassMenu/DeleteGatePassWithID/${gatePassId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
